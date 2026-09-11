@@ -19,7 +19,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from backend.app.config import ASSETS_PATH, RISK_MODEL_PATH
+from backend.app.config import (
+    ASSETS_PATH,
+    MIN_CONFIDENCE,
+    REQUIRED_RISK_FEATURES,
+    RISK_MODEL_PATH,
+)
 
 
 FEATURE_COLUMNS = [
