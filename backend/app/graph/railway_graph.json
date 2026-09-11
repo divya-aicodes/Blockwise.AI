@@ -1,0 +1,61 @@
+{
+  "directed": false,
+  "nodes": [
+    {
+      "code": "AWR",
+      "distance_from_origin_km": 158,
+      "name": "Alwar"
+    },
+    {
+      "code": "BKI",
+      "distance_from_origin_km": 219,
+      "name": "Bandikui"
+    },
+    {
+      "code": "JP",
+      "distance_from_origin_km": 309,
+      "name": "Jaipur"
+    },
+    {
+      "code": "NDLS",
+      "distance_from_origin_km": 0,
+      "name": "New Delhi"
+    },
+    {
+      "code": "RE",
+      "distance_from_origin_km": 84,
+      "name": "Rewari"
+    }
+  ],
+  "schema_version": 1,
+  "sections": [
+    {
+      "distance_km": 84,
+      "from_station": "NDLS",
+      "max_speed_kmh": 130,
+      "section_id": "SEC-NDLS-RE",
+      "to_station": "RE"
+    },
+    {
+      "distance_km": 74,
+      "from_station": "RE",
+      "max_speed_kmh": 120,
+      "section_id": "SEC-RE-AWR",
+      "to_station": "AWR"
+    },
+    {
+      "distance_km": 61,
+      "from_station": "AWR",
+      "max_speed_kmh": 110,
+      "section_id": "SEC-AWR-BKI",
+      "to_station": "BKI"
+    },
+    {
+      "distance_km": 90,
+      "from_station": "BKI",
+      "max_speed_kmh": 130,
+      "section_id": "SEC-BKI-JP",
+      "to_station": "JP"
+    }
+  ]
+}

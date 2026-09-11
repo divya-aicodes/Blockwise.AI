@@ -1,0 +1,17 @@
+{
+  "name": "BLOCKWISE",
+  "short_name": "BLOCKWISE",
+  "description": "Deterministic digital twin and block-signal optimization for railway maintenance planning",
+  "start_url": "/crew",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#e9485f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/crew.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

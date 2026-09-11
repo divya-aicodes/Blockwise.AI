@@ -1,0 +1,5 @@
+crew_id,crew_name,primary_skill,secondary_skills,shift_start,shift_end,crew_size,availability
+CRW-01,Track and Structures Crew,TRACK,BRIDGE|POINT_MACHINE,06:00:00,14:00:00,6,AVAILABLE
+CRW-02,Signalling Crew,SIGNAL,TELECOM|POINT_MACHINE,08:00:00,16:00:00,4,AVAILABLE
+CRW-03,Traction Power Crew,OHE,TELECOM|SIGNAL,14:00:00,22:00:00,5,AVAILABLE
+CRW-04,Night Response Crew,POINT_MACHINE,TRACK|SIGNAL|OHE,22:00:00,06:00:00,3,LIMITED

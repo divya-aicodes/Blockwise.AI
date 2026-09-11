@@ -1,0 +1,10 @@
+{
+  "name": "Railway Operations Crew",
+  "short_name": "RailCrew",
+  "start_url": "/crew",
+  "display": "standalone",
+  "background_color": "#DAEFF1",
+  "theme_color": "#DAEFF1",
+  "description": "Bilingual railway crew work-order workspace",
+  "icons": []
+}

@@ -1,0 +1,1 @@
+"""Notifications package for Crew Management System."""

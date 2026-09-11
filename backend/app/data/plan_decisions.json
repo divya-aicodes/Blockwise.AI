@@ -1,0 +1,2611 @@
+[
+  {
+    "plan_id": "P003",
+    "maintenance_id": "M003",
+    "decision": "APPROVED",
+    "decision_id": "D0001",
+    "recorded_at": "2026-09-08T20:20:09.214036+05:30",
+    "evidence_hash": "3548174eeab3a85942bf1171cab9cca57e3d2845bf13eaca37db45694da29223",
+    "evidence": {
+      "plan": {
+        "plan_id": "P003",
+        "maintenance_id": "M003",
+        "maintenance_window": {
+          "start": "2026-09-09T07:37:00+05:30",
+          "end": "2026-09-09T08:55:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-09T07:12:00+05:30",
+            "original_exit_time": "2026-09-09T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-09T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-09T09:47:00+05:30",
+            "delay_added_min": 103
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-09T08:06:00+05:30",
+            "original_exit_time": "2026-09-09T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-09T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-09T09:47:00+05:30",
+            "delay_added_min": 49
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-09T08:33:00+05:30",
+            "original_exit_time": "2026-09-09T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-09T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-09T09:47:00+05:30",
+            "delay_added_min": 22
+          }
+        ],
+        "total_train_delay_min": 174,
+        "priority_weighted_train_delay_min": 522,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 85.01,
+        "risk_delay_penalty": 25.87,
+        "crew_cost": 19.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 5265.37,
+        "rank": 3
+      },
+      "simulation": {
+        "simulation_date": "2026-09-09",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 205,
+          "max_single_train_delay_min": 103,
+          "average_delay_min": 10.25,
+          "affected_trains_count": 5,
+          "affected_train_ids": [
+            "TRN-12007",
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12014"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-09T08:58:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-09T07:37:00+05:30",
+          "maintenance_end_time": "2026-09-09T08:58:00+05:30",
+          "predicted_maintenance_duration_min": 78,
+          "simulated_maintenance_duration_min": 81
+        },
+        "maintenance": {
+          "maintenance_id": "M003",
+          "plan_id": "P003",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-09T07:37:00+05:30",
+          "planned_end": "2026-09-09T08:55:00+05:30",
+          "simulated_start": "2026-09-09T07:37:00+05:30",
+          "simulated_end": "2026-09-09T08:58:00+05:30",
+          "predicted_duration_min": 78,
+          "simulated_duration_min": 81,
+          "duration_variation_min": 3,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P006",
+    "maintenance_id": "M004",
+    "decision": "MODIFY",
+    "decision_id": "D0002",
+    "recorded_at": "2026-09-08T22:00:46.956104+05:30",
+    "evidence_hash": "d0594e4f00d1c069786d9991282c8a4aa05eb79da2879fe4ae4e04ffe8cdc409",
+    "evidence": {
+      "plan": {
+        "plan_id": "P006",
+        "maintenance_id": "M004",
+        "maintenance_window": {
+          "start": "2026-09-10T07:37:00+05:30",
+          "end": "2026-09-10T08:55:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12008",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T07:39:00+05:30",
+            "original_exit_time": "2026-09-10T08:31:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 76
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:06:00+05:30",
+            "original_exit_time": "2026-09-10T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 49
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:33:00+05:30",
+            "original_exit_time": "2026-09-10T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 22
+          }
+        ],
+        "total_train_delay_min": 147,
+        "priority_weighted_train_delay_min": 441,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 77.01,
+        "risk_delay_penalty": 12.93,
+        "crew_cost": 19.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4442.43,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P006",
+    "maintenance_id": "M004",
+    "decision": "APPROVED",
+    "decision_id": "D0003",
+    "recorded_at": "2026-09-08T22:01:17.240324+05:30",
+    "evidence_hash": "dfbb8d972cd265783eb78d1e606c0e2ea10fdf8cfc53cc76dd5e9910bfc7cad7",
+    "evidence": {
+      "plan": {
+        "plan_id": "P006",
+        "maintenance_id": "M004",
+        "maintenance_window": {
+          "start": "2026-09-10T07:37:00+05:30",
+          "end": "2026-09-10T08:55:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12008",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T07:39:00+05:30",
+            "original_exit_time": "2026-09-10T08:31:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 76
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:06:00+05:30",
+            "original_exit_time": "2026-09-10T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 49
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:33:00+05:30",
+            "original_exit_time": "2026-09-10T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 22
+          }
+        ],
+        "total_train_delay_min": 147,
+        "priority_weighted_train_delay_min": 441,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 77.01,
+        "risk_delay_penalty": 12.93,
+        "crew_cost": 19.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4442.43,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-10",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 172,
+          "max_single_train_delay_min": 76,
+          "average_delay_min": 8.6,
+          "affected_trains_count": 5,
+          "affected_train_ids": [
+            "TRN-12008",
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12014"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-10T08:53:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-10T07:37:00+05:30",
+          "maintenance_end_time": "2026-09-10T08:53:00+05:30",
+          "predicted_maintenance_duration_min": 78,
+          "simulated_maintenance_duration_min": 76
+        },
+        "maintenance": {
+          "maintenance_id": "M004",
+          "plan_id": "P006",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-10T07:37:00+05:30",
+          "planned_end": "2026-09-10T08:55:00+05:30",
+          "simulated_start": "2026-09-10T07:37:00+05:30",
+          "simulated_end": "2026-09-10T08:53:00+05:30",
+          "predicted_duration_min": 78,
+          "simulated_duration_min": 76,
+          "duration_variation_min": -2,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P011",
+    "maintenance_id": "M005",
+    "decision": "APPROVED",
+    "decision_id": "D0004",
+    "recorded_at": "2026-09-08T22:45:47.445684+05:30",
+    "evidence_hash": "e9824d2670f7db82cf21f3b4ff90252d9af7db81612b29b793fdec9065f9a6e7",
+    "evidence": {
+      "plan": {
+        "plan_id": "P011",
+        "maintenance_id": "M005",
+        "maintenance_window": {
+          "start": "2026-09-10T07:37:00+05:30",
+          "end": "2026-09-10T08:55:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12008",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T07:39:00+05:30",
+            "original_exit_time": "2026-09-10T08:31:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 76
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:06:00+05:30",
+            "original_exit_time": "2026-09-10T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 49
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T08:33:00+05:30",
+            "original_exit_time": "2026-09-10T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-10T08:55:00+05:30",
+            "adjusted_exit_time": "2026-09-10T09:47:00+05:30",
+            "delay_added_min": 22
+          }
+        ],
+        "total_train_delay_min": 147,
+        "priority_weighted_train_delay_min": 441,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 77.01,
+        "risk_delay_penalty": 12.93,
+        "crew_cost": 19.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4442.43,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-10",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 172,
+          "max_single_train_delay_min": 76,
+          "average_delay_min": 8.6,
+          "affected_trains_count": 5,
+          "affected_train_ids": [
+            "TRN-12008",
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12014"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-10T08:51:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-10T07:37:00+05:30",
+          "maintenance_end_time": "2026-09-10T08:51:00+05:30",
+          "predicted_maintenance_duration_min": 78,
+          "simulated_maintenance_duration_min": 74
+        },
+        "maintenance": {
+          "maintenance_id": "M005",
+          "plan_id": "P011",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-10T07:37:00+05:30",
+          "planned_end": "2026-09-10T08:55:00+05:30",
+          "simulated_start": "2026-09-10T07:37:00+05:30",
+          "simulated_end": "2026-09-10T08:51:00+05:30",
+          "predicted_duration_min": 78,
+          "simulated_duration_min": 74,
+          "duration_variation_min": -4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P021",
+    "maintenance_id": "M008",
+    "decision": "MODIFY",
+    "decision_id": "D0005",
+    "recorded_at": "2026-09-09T10:36:26.249263+05:30",
+    "evidence_hash": "46bd1fd6ea0834c696f0a0f75f63e0c0980e8deececf1173ade66cdb88ac827a",
+    "evidence": {
+      "plan": {
+        "plan_id": "P021",
+        "maintenance_id": "M008",
+        "maintenance_window": {
+          "start": "2026-09-10T13:11:00+05:30",
+          "end": "2026-09-10T14:37:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12020",
+            "priority": "LOW",
+            "original_entry_time": "2026-09-10T13:03:00+05:30",
+            "original_exit_time": "2026-09-10T14:25:00+05:30",
+            "adjusted_entry_time": "2026-09-10T14:37:00+05:30",
+            "adjusted_exit_time": "2026-09-10T15:59:00+05:30",
+            "delay_added_min": 94
+          },
+          {
+            "train_id": "TRN-12021",
+            "priority": "LOW",
+            "original_entry_time": "2026-09-10T13:30:00+05:30",
+            "original_exit_time": "2026-09-10T14:52:00+05:30",
+            "adjusted_entry_time": "2026-09-10T14:37:00+05:30",
+            "adjusted_exit_time": "2026-09-10T15:59:00+05:30",
+            "delay_added_min": 67
+          },
+          {
+            "train_id": "TRN-12022",
+            "priority": "LOW",
+            "original_entry_time": "2026-09-10T13:57:00+05:30",
+            "original_exit_time": "2026-09-10T15:19:00+05:30",
+            "adjusted_entry_time": "2026-09-10T14:37:00+05:30",
+            "adjusted_exit_time": "2026-09-10T15:59:00+05:30",
+            "delay_added_min": 40
+          }
+        ],
+        "total_train_delay_min": 201,
+        "priority_weighted_train_delay_min": 201,
+        "maintenance_delay_min": 311,
+        "risk_reduction_estimate": 59.48,
+        "risk_delay_penalty": 64.65,
+        "crew_cost": 14.33,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 3643.98,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P026",
+    "maintenance_id": "M009",
+    "decision": "APPROVED",
+    "decision_id": "D0006",
+    "recorded_at": "2026-09-09T10:57:26.866941+05:30",
+    "evidence_hash": "152496acb3b9af9c30ae93d98f77190269438c2f7b9f2bfc9e7b5ee4bdcb7c28",
+    "evidence": {
+      "plan": {
+        "plan_id": "P026",
+        "maintenance_id": "M009",
+        "maintenance_window": {
+          "start": "2026-09-10T06:00:00+05:30",
+          "end": "2026-09-10T07:28:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12001",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T06:24:00+05:30",
+            "original_exit_time": "2026-09-10T07:09:00+05:30",
+            "adjusted_entry_time": "2026-09-10T07:28:00+05:30",
+            "adjusted_exit_time": "2026-09-10T08:13:00+05:30",
+            "delay_added_min": 64
+          },
+          {
+            "train_id": "TRN-12002",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-10T06:51:00+05:30",
+            "original_exit_time": "2026-09-10T07:36:00+05:30",
+            "adjusted_entry_time": "2026-09-10T07:28:00+05:30",
+            "adjusted_exit_time": "2026-09-10T08:13:00+05:30",
+            "delay_added_min": 37
+          }
+        ],
+        "total_train_delay_min": 101,
+        "priority_weighted_train_delay_min": 303,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 93.7,
+        "risk_delay_penalty": 0.0,
+        "crew_cost": 22.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 3052.0,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-10",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 112,
+          "max_single_train_delay_min": 64,
+          "average_delay_min": 5.6,
+          "affected_trains_count": 3,
+          "affected_train_ids": [
+            "TRN-12001",
+            "TRN-12002",
+            "TRN-12005"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-10T07:28:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-10T06:00:00+05:30",
+          "maintenance_end_time": "2026-09-10T07:28:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 88
+        },
+        "maintenance": {
+          "maintenance_id": "M009",
+          "plan_id": "P026",
+          "section_id": "SEC-AWR-BKI",
+          "planned_start": "2026-09-10T06:00:00+05:30",
+          "planned_end": "2026-09-10T07:28:00+05:30",
+          "simulated_start": "2026-09-10T06:00:00+05:30",
+          "simulated_end": "2026-09-10T07:28:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 88,
+          "duration_variation_min": 0,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P031",
+    "maintenance_id": "M010",
+    "decision": "APPROVED",
+    "decision_id": "D0007",
+    "recorded_at": "2026-09-10T03:09:13.134889+05:30",
+    "evidence_hash": "c6b1b57bfcdfb65cc19146d581cd3c0d6791a657b1d114d5ed7482ea02b100bc",
+    "evidence": {
+      "plan": {
+        "plan_id": "P031",
+        "maintenance_id": "M010",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 98,
+          "max_single_train_delay_min": 58,
+          "average_delay_min": 4.9,
+          "affected_trains_count": 4,
+          "affected_train_ids": [
+            "TRN-12005",
+            "TRN-12006",
+            "TRN-12007",
+            "TRN-12009"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T07:13:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T06:16:00+05:30",
+          "maintenance_end_time": "2026-09-11T07:13:00+05:30",
+          "predicted_maintenance_duration_min": 60,
+          "simulated_maintenance_duration_min": 57
+        },
+        "maintenance": {
+          "maintenance_id": "M010",
+          "plan_id": "P031",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T06:16:00+05:30",
+          "planned_end": "2026-09-11T07:16:00+05:30",
+          "simulated_start": "2026-09-11T06:16:00+05:30",
+          "simulated_end": "2026-09-11T07:13:00+05:30",
+          "predicted_duration_min": 60,
+          "simulated_duration_min": 57,
+          "duration_variation_min": -3,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P031",
+    "maintenance_id": "M010",
+    "decision": "REJECTED",
+    "decision_id": "D0008",
+    "recorded_at": "2026-09-10T03:09:13.372032+05:30",
+    "evidence_hash": "5e7831c2f1da1dbcaa6263d6340e40147a4df31b28d2302249e88960f84a5894",
+    "evidence": {
+      "plan": {
+        "plan_id": "P031",
+        "maintenance_id": "M010",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P031",
+    "maintenance_id": "M010",
+    "decision": "MODIFY",
+    "decision_id": "D0009",
+    "recorded_at": "2026-09-10T03:09:13.639803+05:30",
+    "evidence_hash": "5e7831c2f1da1dbcaa6263d6340e40147a4df31b28d2302249e88960f84a5894",
+    "evidence": {
+      "plan": {
+        "plan_id": "P031",
+        "maintenance_id": "M010",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P036",
+    "maintenance_id": "M011",
+    "decision": "APPROVED",
+    "decision_id": "D0010",
+    "recorded_at": "2026-09-10T03:11:42.885270+05:30",
+    "evidence_hash": "1e6a7155597d63c956f99f9e5f232fcfd4d539582800d6ef5fdbf54587ae1b59",
+    "evidence": {
+      "plan": {
+        "plan_id": "P036",
+        "maintenance_id": "M011",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 98,
+          "max_single_train_delay_min": 58,
+          "average_delay_min": 4.9,
+          "affected_trains_count": 4,
+          "affected_train_ids": [
+            "TRN-12005",
+            "TRN-12006",
+            "TRN-12007",
+            "TRN-12009"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T07:12:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T06:16:00+05:30",
+          "maintenance_end_time": "2026-09-11T07:12:00+05:30",
+          "predicted_maintenance_duration_min": 60,
+          "simulated_maintenance_duration_min": 56
+        },
+        "maintenance": {
+          "maintenance_id": "M011",
+          "plan_id": "P036",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T06:16:00+05:30",
+          "planned_end": "2026-09-11T07:16:00+05:30",
+          "simulated_start": "2026-09-11T06:16:00+05:30",
+          "simulated_end": "2026-09-11T07:12:00+05:30",
+          "predicted_duration_min": 60,
+          "simulated_duration_min": 56,
+          "duration_variation_min": -4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P036",
+    "maintenance_id": "M011",
+    "decision": "REJECTED",
+    "decision_id": "D0011",
+    "recorded_at": "2026-09-10T03:11:43.180315+05:30",
+    "evidence_hash": "0288e5a53dc1195174c49532629c6c0fabef80086a0fa208cfa4fa907a6f540e",
+    "evidence": {
+      "plan": {
+        "plan_id": "P036",
+        "maintenance_id": "M011",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P036",
+    "maintenance_id": "M011",
+    "decision": "MODIFY",
+    "decision_id": "D0012",
+    "recorded_at": "2026-09-10T03:11:43.483518+05:30",
+    "evidence_hash": "0288e5a53dc1195174c49532629c6c0fabef80086a0fa208cfa4fa907a6f540e",
+    "evidence": {
+      "plan": {
+        "plan_id": "P036",
+        "maintenance_id": "M011",
+        "maintenance_window": {
+          "start": "2026-09-11T06:16:00+05:30",
+          "end": "2026-09-11T07:16:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:18:00+05:30",
+            "original_exit_time": "2026-09-11T07:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 58
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:45:00+05:30",
+            "original_exit_time": "2026-09-11T07:37:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 31
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:04:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:16:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:08:00+05:30",
+            "delay_added_min": 4
+          }
+        ],
+        "total_train_delay_min": 93,
+        "priority_weighted_train_delay_min": 279,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 86.63,
+        "risk_delay_penalty": 4.27,
+        "crew_cost": 15.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2809.27,
+        "rank": 1
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P041",
+    "maintenance_id": "M012",
+    "decision": "APPROVED",
+    "decision_id": "D0013",
+    "recorded_at": "2026-09-10T10:57:49.410799+05:30",
+    "evidence_hash": "965548ac86383de8b2493a6323e85b90cb293f71b82644d156c2808c1cae239b",
+    "evidence": {
+      "plan": {
+        "plan_id": "P041",
+        "maintenance_id": "M012",
+        "maintenance_window": {
+          "start": "2026-09-11T08:04:00+05:30",
+          "end": "2026-09-11T09:27:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:06:00+05:30",
+            "original_exit_time": "2026-09-11T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:19:00+05:30",
+            "delay_added_min": 81
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:33:00+05:30",
+            "original_exit_time": "2026-09-11T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:19:00+05:30",
+            "delay_added_min": 54
+          },
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T09:00:00+05:30",
+            "original_exit_time": "2026-09-11T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:29:00+05:30",
+            "delay_added_min": 27
+          }
+        ],
+        "total_train_delay_min": 162,
+        "priority_weighted_train_delay_min": 459,
+        "maintenance_delay_min": 4,
+        "risk_reduction_estimate": 33.22,
+        "risk_delay_penalty": 6.2,
+        "crew_cost": 20.75,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4636.95,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 209,
+          "max_single_train_delay_min": 81,
+          "average_delay_min": 10.45,
+          "affected_trains_count": 6,
+          "affected_train_ids": [
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12014",
+            "TRN-12015"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T09:27:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T08:04:00+05:30",
+          "maintenance_end_time": "2026-09-11T09:27:00+05:30",
+          "predicted_maintenance_duration_min": 83,
+          "simulated_maintenance_duration_min": 83
+        },
+        "maintenance": {
+          "maintenance_id": "M012",
+          "plan_id": "P041",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T08:04:00+05:30",
+          "planned_end": "2026-09-11T09:27:00+05:30",
+          "simulated_start": "2026-09-11T08:04:00+05:30",
+          "simulated_end": "2026-09-11T09:27:00+05:30",
+          "predicted_duration_min": 83,
+          "simulated_duration_min": 83,
+          "duration_variation_min": 0,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P046",
+    "maintenance_id": "M013",
+    "decision": "APPROVED",
+    "decision_id": "D0014",
+    "recorded_at": "2026-09-10T11:09:41.148283+05:30",
+    "evidence_hash": "04883d32418b4a906e396a4bbb5b7074d789d6e372dbb24413f75ea3a075facc",
+    "evidence": {
+      "plan": {
+        "plan_id": "P046",
+        "maintenance_id": "M013",
+        "maintenance_window": {
+          "start": "2026-09-11T08:04:00+05:30",
+          "end": "2026-09-11T09:27:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:06:00+05:30",
+            "original_exit_time": "2026-09-11T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:19:00+05:30",
+            "delay_added_min": 81
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:33:00+05:30",
+            "original_exit_time": "2026-09-11T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:19:00+05:30",
+            "delay_added_min": 54
+          },
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T09:00:00+05:30",
+            "original_exit_time": "2026-09-11T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:27:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:29:00+05:30",
+            "delay_added_min": 27
+          }
+        ],
+        "total_train_delay_min": 162,
+        "priority_weighted_train_delay_min": 459,
+        "maintenance_delay_min": 4,
+        "risk_reduction_estimate": 33.22,
+        "risk_delay_penalty": 6.2,
+        "crew_cost": 20.75,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4636.95,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 219,
+          "max_single_train_delay_min": 81,
+          "average_delay_min": 10.95,
+          "affected_trains_count": 7,
+          "affected_train_ids": [
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12013",
+            "TRN-12014",
+            "TRN-12015"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T09:31:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T08:04:00+05:30",
+          "maintenance_end_time": "2026-09-11T09:31:00+05:30",
+          "predicted_maintenance_duration_min": 83,
+          "simulated_maintenance_duration_min": 87
+        },
+        "maintenance": {
+          "maintenance_id": "M013",
+          "plan_id": "P046",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T08:04:00+05:30",
+          "planned_end": "2026-09-11T09:27:00+05:30",
+          "simulated_start": "2026-09-11T08:04:00+05:30",
+          "simulated_end": "2026-09-11T09:31:00+05:30",
+          "predicted_duration_min": 83,
+          "simulated_duration_min": 87,
+          "duration_variation_min": 4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P053",
+    "maintenance_id": "M014",
+    "decision": "APPROVED",
+    "decision_id": "D0015",
+    "recorded_at": "2026-09-10T12:11:13.065286+05:30",
+    "evidence_hash": "22fe84fb1fecb22d1ae6eacdde7c374b685ea33a4948027bdfd42ce64213402b",
+    "evidence": {
+      "plan": {
+        "plan_id": "P053",
+        "maintenance_id": "M014",
+        "maintenance_window": {
+          "start": "2026-09-11T08:03:00+05:30",
+          "end": "2026-09-11T09:31:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:12:00+05:30",
+            "original_exit_time": "2026-09-11T08:57:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:31:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:16:00+05:30",
+            "delay_added_min": 79
+          },
+          {
+            "train_id": "TRN-12006",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:39:00+05:30",
+            "original_exit_time": "2026-09-11T09:24:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:31:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:16:00+05:30",
+            "delay_added_min": 52
+          },
+          {
+            "train_id": "TRN-12007",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T09:06:00+05:30",
+            "original_exit_time": "2026-09-11T09:51:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:31:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:16:00+05:30",
+            "delay_added_min": 25
+          }
+        ],
+        "total_train_delay_min": 156,
+        "priority_weighted_train_delay_min": 468,
+        "maintenance_delay_min": 3,
+        "risk_reduction_estimate": 91.24,
+        "risk_delay_penalty": 32.8,
+        "crew_cost": 14.67,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4742.47,
+        "rank": 3
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 182,
+          "max_single_train_delay_min": 79,
+          "average_delay_min": 9.1,
+          "affected_trains_count": 4,
+          "affected_train_ids": [
+            "TRN-12005",
+            "TRN-12006",
+            "TRN-12007",
+            "TRN-12009"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T09:36:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T08:03:00+05:30",
+          "maintenance_end_time": "2026-09-11T09:36:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 93
+        },
+        "maintenance": {
+          "maintenance_id": "M014",
+          "plan_id": "P053",
+          "section_id": "SEC-AWR-BKI",
+          "planned_start": "2026-09-11T08:03:00+05:30",
+          "planned_end": "2026-09-11T09:31:00+05:30",
+          "simulated_start": "2026-09-11T08:03:00+05:30",
+          "simulated_end": "2026-09-11T09:36:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 93,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P061",
+    "maintenance_id": "M016",
+    "decision": "APPROVED",
+    "decision_id": "D0016",
+    "recorded_at": "2026-09-10T12:19:58.984426+05:30",
+    "evidence_hash": "20a481945372729f37145b2bca98bdb0a5a8dd5134e0c4caaf870d6c4b244de9",
+    "evidence": {
+      "plan": {
+        "plan_id": "P061",
+        "maintenance_id": "M016",
+        "maintenance_window": {
+          "start": "2026-09-11T08:04:00+05:30",
+          "end": "2026-09-11T09:30:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:06:00+05:30",
+            "original_exit_time": "2026-09-11T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:30:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:22:00+05:30",
+            "delay_added_min": 84
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T08:33:00+05:30",
+            "original_exit_time": "2026-09-11T09:25:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:30:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:22:00+05:30",
+            "delay_added_min": 57
+          },
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T09:00:00+05:30",
+            "original_exit_time": "2026-09-11T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:30:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:32:00+05:30",
+            "delay_added_min": 30
+          },
+          {
+            "train_id": "TRN-12012",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T09:27:00+05:30",
+            "original_exit_time": "2026-09-11T10:29:00+05:30",
+            "adjusted_entry_time": "2026-09-11T09:30:00+05:30",
+            "adjusted_exit_time": "2026-09-11T10:32:00+05:30",
+            "delay_added_min": 3
+          }
+        ],
+        "total_train_delay_min": 174,
+        "priority_weighted_train_delay_min": 489,
+        "maintenance_delay_min": 4,
+        "risk_reduction_estimate": 65.62,
+        "risk_delay_penalty": 18.6,
+        "crew_cost": 14.33,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4942.93,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 228,
+          "max_single_train_delay_min": 84,
+          "average_delay_min": 11.4,
+          "affected_trains_count": 7,
+          "affected_train_ids": [
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12013",
+            "TRN-12014",
+            "TRN-12015"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T09:26:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T08:04:00+05:30",
+          "maintenance_end_time": "2026-09-11T09:26:00+05:30",
+          "predicted_maintenance_duration_min": 86,
+          "simulated_maintenance_duration_min": 82
+        },
+        "maintenance": {
+          "maintenance_id": "M016",
+          "plan_id": "P061",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T08:04:00+05:30",
+          "planned_end": "2026-09-11T09:30:00+05:30",
+          "simulated_start": "2026-09-11T08:04:00+05:30",
+          "simulated_end": "2026-09-11T09:26:00+05:30",
+          "predicted_duration_min": 86,
+          "simulated_duration_min": 82,
+          "duration_variation_min": -4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P066",
+    "maintenance_id": "M017",
+    "decision": "APPROVED",
+    "decision_id": "D0017",
+    "recorded_at": "2026-09-10T12:23:37.510309+05:30",
+    "evidence_hash": "dbcdc06d5c62f1d2280ee6a59fb489c08878abd3f8f822e9130e6877bebde80b",
+    "evidence": {
+      "plan": {
+        "plan_id": "P066",
+        "maintenance_id": "M017",
+        "maintenance_window": {
+          "start": "2026-09-11T15:46:00+05:30",
+          "end": "2026-09-11T17:10:00+05:30"
+        },
+        "assigned_crew_id": "CRW-03",
+        "affected_trains": [],
+        "total_train_delay_min": 0,
+        "priority_weighted_train_delay_min": 0,
+        "maintenance_delay_min": 466,
+        "risk_reduction_estimate": 42.43,
+        "risk_delay_penalty": 58.6,
+        "crew_cost": 17.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2406.1,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 0,
+          "max_single_train_delay_min": 0,
+          "average_delay_min": 0.0,
+          "affected_trains_count": 0,
+          "affected_train_ids": [],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T17:08:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T15:46:00+05:30",
+          "maintenance_end_time": "2026-09-11T17:08:00+05:30",
+          "predicted_maintenance_duration_min": 84,
+          "simulated_maintenance_duration_min": 82
+        },
+        "maintenance": {
+          "maintenance_id": "M017",
+          "plan_id": "P066",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-11T15:46:00+05:30",
+          "planned_end": "2026-09-11T17:10:00+05:30",
+          "simulated_start": "2026-09-11T15:46:00+05:30",
+          "simulated_end": "2026-09-11T17:08:00+05:30",
+          "predicted_duration_min": 84,
+          "simulated_duration_min": 82,
+          "duration_variation_min": -2,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P071",
+    "maintenance_id": "M018",
+    "decision": "APPROVED",
+    "decision_id": "D0018",
+    "recorded_at": "2026-09-10T15:20:58.479369+05:30",
+    "evidence_hash": "2286b9bc5dfa2f254fa60099975649e7a382ae40e3310aec3c180bd259b224cb",
+    "evidence": {
+      "plan": {
+        "plan_id": "P071",
+        "maintenance_id": "M018",
+        "maintenance_window": {
+          "start": "2026-09-11T06:00:00+05:30",
+          "end": "2026-09-11T07:28:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12001",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:24:00+05:30",
+            "original_exit_time": "2026-09-11T07:09:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:28:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:13:00+05:30",
+            "delay_added_min": 64
+          },
+          {
+            "train_id": "TRN-12002",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T06:51:00+05:30",
+            "original_exit_time": "2026-09-11T07:36:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:28:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:13:00+05:30",
+            "delay_added_min": 37
+          },
+          {
+            "train_id": "TRN-12003",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T07:18:00+05:30",
+            "original_exit_time": "2026-09-11T08:03:00+05:30",
+            "adjusted_entry_time": "2026-09-11T07:28:00+05:30",
+            "adjusted_exit_time": "2026-09-11T08:13:00+05:30",
+            "delay_added_min": 10
+          }
+        ],
+        "total_train_delay_min": 111,
+        "priority_weighted_train_delay_min": 333,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 93.7,
+        "risk_delay_penalty": 0.0,
+        "crew_cost": 22.0,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 3352.0,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 122,
+          "max_single_train_delay_min": 64,
+          "average_delay_min": 6.1,
+          "affected_trains_count": 4,
+          "affected_train_ids": [
+            "TRN-12001",
+            "TRN-12002",
+            "TRN-12003",
+            "TRN-12005"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T07:32:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T06:00:00+05:30",
+          "maintenance_end_time": "2026-09-11T07:32:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 92
+        },
+        "maintenance": {
+          "maintenance_id": "M018",
+          "plan_id": "P071",
+          "section_id": "SEC-AWR-BKI",
+          "planned_start": "2026-09-11T06:00:00+05:30",
+          "planned_end": "2026-09-11T07:28:00+05:30",
+          "simulated_start": "2026-09-11T06:00:00+05:30",
+          "simulated_end": "2026-09-11T07:32:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 92,
+          "duration_variation_min": 4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P086",
+    "maintenance_id": "M021",
+    "decision": "APPROVED",
+    "decision_id": "D0019",
+    "recorded_at": "2026-09-10T15:55:12.248357+05:30",
+    "evidence_hash": "20071636f559727bfe470c7ceb58ea829f111416f0f226e56e9e03c9acd159d6",
+    "evidence": {
+      "plan": {
+        "plan_id": "P086",
+        "maintenance_id": "M021",
+        "maintenance_window": {
+          "start": "2026-09-11T09:00:00+05:30",
+          "end": "2026-09-11T10:21:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T09:04:00+05:30",
+            "original_exit_time": "2026-09-11T09:54:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:11:00+05:30",
+            "delay_added_min": 77
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T09:31:00+05:30",
+            "original_exit_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:11:00+05:30",
+            "delay_added_min": 50
+          },
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T10:11:00+05:30",
+            "original_exit_time": "2026-09-11T11:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:20:00+05:30",
+            "delay_added_min": 10
+          }
+        ],
+        "total_train_delay_min": 137,
+        "priority_weighted_train_delay_min": 401,
+        "maintenance_delay_min": 60,
+        "risk_reduction_estimate": 36.6,
+        "risk_delay_penalty": 9.0,
+        "crew_cost": 20.25,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4339.25,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 152,
+          "max_single_train_delay_min": 77,
+          "average_delay_min": 7.6,
+          "affected_trains_count": 4,
+          "affected_train_ids": [
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12012"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T10:18:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T09:00:00+05:30",
+          "maintenance_end_time": "2026-09-11T10:18:00+05:30",
+          "predicted_maintenance_duration_min": 81,
+          "simulated_maintenance_duration_min": 78
+        },
+        "maintenance": {
+          "maintenance_id": "M021",
+          "plan_id": "P086",
+          "section_id": "SEC-RE-AWR",
+          "planned_start": "2026-09-11T09:00:00+05:30",
+          "planned_end": "2026-09-11T10:21:00+05:30",
+          "simulated_start": "2026-09-11T09:00:00+05:30",
+          "simulated_end": "2026-09-11T10:18:00+05:30",
+          "predicted_duration_min": 81,
+          "simulated_duration_min": 78,
+          "duration_variation_min": -3,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P091",
+    "maintenance_id": "M022",
+    "decision": "APPROVED",
+    "decision_id": "D0020",
+    "recorded_at": "2026-09-10T16:25:26.865691+05:30",
+    "evidence_hash": "c2e9c523cfa7da8bbfb66b1ec228ed4643b2aabbdfbd816fb8191d699c4b5804",
+    "evidence": {
+      "plan": {
+        "plan_id": "P091",
+        "maintenance_id": "M022",
+        "maintenance_window": {
+          "start": "2026-09-11T09:00:00+05:30",
+          "end": "2026-09-11T10:21:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T09:04:00+05:30",
+            "original_exit_time": "2026-09-11T09:54:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:11:00+05:30",
+            "delay_added_min": 77
+          },
+          {
+            "train_id": "TRN-12010",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-11T09:31:00+05:30",
+            "original_exit_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:11:00+05:30",
+            "delay_added_min": 50
+          },
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-11T10:11:00+05:30",
+            "original_exit_time": "2026-09-11T11:10:00+05:30",
+            "adjusted_entry_time": "2026-09-11T10:21:00+05:30",
+            "adjusted_exit_time": "2026-09-11T11:20:00+05:30",
+            "delay_added_min": 10
+          }
+        ],
+        "total_train_delay_min": 137,
+        "priority_weighted_train_delay_min": 401,
+        "maintenance_delay_min": 60,
+        "risk_reduction_estimate": 36.6,
+        "risk_delay_penalty": 9.0,
+        "crew_cost": 20.25,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 4339.25,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 162,
+          "max_single_train_delay_min": 77,
+          "average_delay_min": 8.1,
+          "affected_trains_count": 5,
+          "affected_train_ids": [
+            "TRN-12009",
+            "TRN-12010",
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12015"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T10:26:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T09:00:00+05:30",
+          "maintenance_end_time": "2026-09-11T10:26:00+05:30",
+          "predicted_maintenance_duration_min": 81,
+          "simulated_maintenance_duration_min": 86
+        },
+        "maintenance": {
+          "maintenance_id": "M022",
+          "plan_id": "P091",
+          "section_id": "SEC-RE-AWR",
+          "planned_start": "2026-09-11T09:00:00+05:30",
+          "planned_end": "2026-09-11T10:21:00+05:30",
+          "simulated_start": "2026-09-11T09:00:00+05:30",
+          "simulated_end": "2026-09-11T10:26:00+05:30",
+          "predicted_duration_min": 81,
+          "simulated_duration_min": 86,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P096",
+    "maintenance_id": "M023",
+    "decision": "APPROVED",
+    "decision_id": "D0021",
+    "recorded_at": "2026-09-10T17:33:38.215460+05:30",
+    "evidence_hash": "3290318705c3d7f83c9bba1eb3bd179340e3e45907f33da898e07b11cc8c7ba4",
+    "evidence": {
+      "plan": {
+        "plan_id": "P096",
+        "maintenance_id": "M023",
+        "maintenance_window": {
+          "start": "2026-09-11T15:21:00+05:30",
+          "end": "2026-09-11T16:44:00+05:30"
+        },
+        "assigned_crew_id": "CRW-03",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12019",
+            "priority": "LOW",
+            "original_entry_time": "2026-09-11T15:40:00+05:30",
+            "original_exit_time": "2026-09-11T16:51:00+05:30",
+            "adjusted_entry_time": "2026-09-11T16:44:00+05:30",
+            "adjusted_exit_time": "2026-09-11T17:55:00+05:30",
+            "delay_added_min": 64
+          },
+          {
+            "train_id": "TRN-12021",
+            "priority": "LOW",
+            "original_entry_time": "2026-09-11T16:34:00+05:30",
+            "original_exit_time": "2026-09-11T17:45:00+05:30",
+            "adjusted_entry_time": "2026-09-11T16:44:00+05:30",
+            "adjusted_exit_time": "2026-09-11T17:55:00+05:30",
+            "delay_added_min": 10
+          }
+        ],
+        "total_train_delay_min": 74,
+        "priority_weighted_train_delay_min": 74,
+        "maintenance_delay_min": 441,
+        "risk_reduction_estimate": 28.98,
+        "risk_delay_penalty": 28.05,
+        "crew_cost": 17.29,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2990.34,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-11",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 118,
+          "max_single_train_delay_min": 64,
+          "average_delay_min": 5.9,
+          "affected_trains_count": 3,
+          "affected_train_ids": [
+            "TRN-12019",
+            "TRN-12021",
+            "TRN-12023"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-11T16:40:00+05:30",
+          "trains_simulated": 20,
+          "maintenance_start_time": "2026-09-11T15:21:00+05:30",
+          "maintenance_end_time": "2026-09-11T16:40:00+05:30",
+          "predicted_maintenance_duration_min": 83,
+          "simulated_maintenance_duration_min": 79
+        },
+        "maintenance": {
+          "maintenance_id": "M023",
+          "plan_id": "P096",
+          "section_id": "SEC-AWR-BKI",
+          "planned_start": "2026-09-11T15:21:00+05:30",
+          "planned_end": "2026-09-11T16:44:00+05:30",
+          "simulated_start": "2026-09-11T15:21:00+05:30",
+          "simulated_end": "2026-09-11T16:40:00+05:30",
+          "predicted_duration_min": 83,
+          "simulated_duration_min": 79,
+          "duration_variation_min": -4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P101",
+    "maintenance_id": "M024",
+    "decision": "APPROVED",
+    "decision_id": "D0022",
+    "recorded_at": "2026-09-11T09:22:18.275615+05:30",
+    "evidence_hash": "3eb778b91bf688dcfe6d2b658357f99dbfa3f8da6d6232ba8a3fb42b8eb2a998",
+    "evidence": {
+      "plan": {
+        "plan_id": "P101",
+        "maintenance_id": "M024",
+        "maintenance_window": {
+          "start": "2026-09-12T08:58:00+05:30",
+          "end": "2026-09-12T10:26:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:00:00+05:30",
+            "original_exit_time": "2026-09-12T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 86
+          },
+          {
+            "train_id": "TRN-12012",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:27:00+05:30",
+            "original_exit_time": "2026-09-12T10:29:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 59
+          },
+          {
+            "train_id": "TRN-12013",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:54:00+05:30",
+            "original_exit_time": "2026-09-12T10:56:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 32
+          },
+          {
+            "train_id": "TRN-12014",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T10:21:00+05:30",
+            "original_exit_time": "2026-09-12T11:23:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 5
+          }
+        ],
+        "total_train_delay_min": 182,
+        "priority_weighted_train_delay_min": 364,
+        "maintenance_delay_min": 58,
+        "risk_reduction_estimate": 90.14,
+        "risk_delay_penalty": 47.47,
+        "crew_cost": 14.67,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 3992.14,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 562,
+          "max_single_train_delay_min": 86,
+          "average_delay_min": 35.12,
+          "affected_trains_count": 8,
+          "affected_train_ids": [
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12013",
+            "TRN-12014",
+            "TRN-12015",
+            "TRN-12016",
+            "TRN-12017",
+            "TRN-12018"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T10:23:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T08:58:00+05:30",
+          "maintenance_end_time": "2026-09-12T10:23:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 85
+        },
+        "maintenance": {
+          "maintenance_id": "M024",
+          "plan_id": "P101",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T08:58:00+05:30",
+          "planned_end": "2026-09-12T10:26:00+05:30",
+          "simulated_start": "2026-09-12T08:58:00+05:30",
+          "simulated_end": "2026-09-12T10:23:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 85,
+          "duration_variation_min": -3,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P102",
+    "maintenance_id": "M024",
+    "decision": "MODIFY",
+    "decision_id": "D0023",
+    "recorded_at": "2026-09-11T09:25:17.709956+05:30",
+    "evidence_hash": "ed880baa9949fa33ddc7602a465bb7645b203cbfaeaae554befbd6be0afbc40c",
+    "evidence": {
+      "plan": {
+        "plan_id": "P102",
+        "maintenance_id": "M024",
+        "maintenance_window": {
+          "start": "2026-09-12T09:13:00+05:30",
+          "end": "2026-09-12T10:41:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:00:00+05:30",
+            "original_exit_time": "2026-09-12T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 101
+          },
+          {
+            "train_id": "TRN-12012",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:27:00+05:30",
+            "original_exit_time": "2026-09-12T10:29:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 74
+          },
+          {
+            "train_id": "TRN-12013",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:54:00+05:30",
+            "original_exit_time": "2026-09-12T10:56:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 47
+          },
+          {
+            "train_id": "TRN-12014",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T10:21:00+05:30",
+            "original_exit_time": "2026-09-12T11:23:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 20
+          }
+        ],
+        "total_train_delay_min": 242,
+        "priority_weighted_train_delay_min": 484,
+        "maintenance_delay_min": 73,
+        "risk_reduction_estimate": 89.84,
+        "risk_delay_penalty": 51.47,
+        "crew_cost": 14.67,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 5271.14,
+        "rank": 2
+      },
+      "simulation": null
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P102",
+    "maintenance_id": "M024",
+    "decision": "APPROVED",
+    "decision_id": "D0024",
+    "recorded_at": "2026-09-11T09:25:39.708949+05:30",
+    "evidence_hash": "15478068d09152cef35d9abd9f19a1f9879d3fbe9f79eaab69afb29e2fb738f9",
+    "evidence": {
+      "plan": {
+        "plan_id": "P102",
+        "maintenance_id": "M024",
+        "maintenance_window": {
+          "start": "2026-09-12T09:13:00+05:30",
+          "end": "2026-09-12T10:41:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:00:00+05:30",
+            "original_exit_time": "2026-09-12T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 101
+          },
+          {
+            "train_id": "TRN-12012",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:27:00+05:30",
+            "original_exit_time": "2026-09-12T10:29:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 74
+          },
+          {
+            "train_id": "TRN-12013",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:54:00+05:30",
+            "original_exit_time": "2026-09-12T10:56:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 47
+          },
+          {
+            "train_id": "TRN-12014",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T10:21:00+05:30",
+            "original_exit_time": "2026-09-12T11:23:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:41:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:43:00+05:30",
+            "delay_added_min": 20
+          }
+        ],
+        "total_train_delay_min": 242,
+        "priority_weighted_train_delay_min": 484,
+        "maintenance_delay_min": 73,
+        "risk_reduction_estimate": 89.84,
+        "risk_delay_penalty": 51.47,
+        "crew_cost": 14.67,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 5271.14,
+        "rank": 2
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 695,
+          "max_single_train_delay_min": 101,
+          "average_delay_min": 43.44,
+          "affected_trains_count": 9,
+          "affected_train_ids": [
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12013",
+            "TRN-12014",
+            "TRN-12015",
+            "TRN-12016",
+            "TRN-12017",
+            "TRN-12018",
+            "TRN-12020"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T10:46:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T09:13:00+05:30",
+          "maintenance_end_time": "2026-09-12T10:46:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 93
+        },
+        "maintenance": {
+          "maintenance_id": "M024",
+          "plan_id": "P102",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T09:13:00+05:30",
+          "planned_end": "2026-09-12T10:41:00+05:30",
+          "simulated_start": "2026-09-12T09:13:00+05:30",
+          "simulated_end": "2026-09-12T10:46:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 93,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P106",
+    "maintenance_id": "M025",
+    "decision": "APPROVED",
+    "decision_id": "D0025",
+    "recorded_at": "2026-09-11T12:03:11.815799+05:30",
+    "evidence_hash": "2e41dda1b030c1d6398c2acbe2fdaeaab482a05f700c094745354899c4fee092",
+    "evidence": {
+      "plan": {
+        "plan_id": "P106",
+        "maintenance_id": "M025",
+        "maintenance_window": {
+          "start": "2026-09-12T16:13:00+05:30",
+          "end": "2026-09-12T17:37:00+05:30"
+        },
+        "assigned_crew_id": "CRW-03",
+        "affected_trains": [],
+        "total_train_delay_min": 0,
+        "priority_weighted_train_delay_min": 0,
+        "maintenance_delay_min": 493,
+        "risk_reduction_estimate": 41.89,
+        "risk_delay_penalty": 61.3,
+        "crew_cost": 17.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2543.8,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 0,
+          "max_single_train_delay_min": 0,
+          "average_delay_min": 0.0,
+          "affected_trains_count": 0,
+          "affected_train_ids": [],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T17:42:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T16:13:00+05:30",
+          "maintenance_end_time": "2026-09-12T17:42:00+05:30",
+          "predicted_maintenance_duration_min": 84,
+          "simulated_maintenance_duration_min": 89
+        },
+        "maintenance": {
+          "maintenance_id": "M025",
+          "plan_id": "P106",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T16:13:00+05:30",
+          "planned_end": "2026-09-12T17:37:00+05:30",
+          "simulated_start": "2026-09-12T16:13:00+05:30",
+          "simulated_end": "2026-09-12T17:42:00+05:30",
+          "predicted_duration_min": 84,
+          "simulated_duration_min": 89,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P111",
+    "maintenance_id": "M026",
+    "decision": "APPROVED",
+    "decision_id": "D0026",
+    "recorded_at": "2026-09-11T13:55:52.358876+05:30",
+    "evidence_hash": "50995cf3bca367310194feac3cfb9f4a6b2b04d75253c1bdc6bea2c99f2128c2",
+    "evidence": {
+      "plan": {
+        "plan_id": "P111",
+        "maintenance_id": "M026",
+        "maintenance_window": {
+          "start": "2026-09-12T16:13:00+05:30",
+          "end": "2026-09-12T17:34:00+05:30"
+        },
+        "assigned_crew_id": "CRW-03",
+        "affected_trains": [],
+        "total_train_delay_min": 0,
+        "priority_weighted_train_delay_min": 0,
+        "maintenance_delay_min": 493,
+        "risk_reduction_estimate": 27.94,
+        "risk_delay_penalty": 30.65,
+        "crew_cost": 16.88,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2512.53,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 0,
+          "max_single_train_delay_min": 0,
+          "average_delay_min": 0.0,
+          "affected_trains_count": 0,
+          "affected_train_ids": [],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T17:39:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T16:13:00+05:30",
+          "maintenance_end_time": "2026-09-12T17:39:00+05:30",
+          "predicted_maintenance_duration_min": 81,
+          "simulated_maintenance_duration_min": 86
+        },
+        "maintenance": {
+          "maintenance_id": "M026",
+          "plan_id": "P111",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T16:13:00+05:30",
+          "planned_end": "2026-09-12T17:34:00+05:30",
+          "simulated_start": "2026-09-12T16:13:00+05:30",
+          "simulated_end": "2026-09-12T17:39:00+05:30",
+          "predicted_duration_min": 81,
+          "simulated_duration_min": 86,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P116",
+    "maintenance_id": "M027",
+    "decision": "APPROVED",
+    "decision_id": "D0027",
+    "recorded_at": "2026-09-11T14:14:17.098248+05:30",
+    "evidence_hash": "507c256a866477652782f0d74743c0f5ec1e62ed85cb0dce5e28b680203f7f27",
+    "evidence": {
+      "plan": {
+        "plan_id": "P116",
+        "maintenance_id": "M027",
+        "maintenance_window": {
+          "start": "2026-09-12T07:10:00+05:30",
+          "end": "2026-09-12T08:33:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12008",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T07:39:00+05:30",
+            "original_exit_time": "2026-09-12T08:31:00+05:30",
+            "adjusted_entry_time": "2026-09-12T08:33:00+05:30",
+            "adjusted_exit_time": "2026-09-12T09:25:00+05:30",
+            "delay_added_min": 54
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T08:06:00+05:30",
+            "original_exit_time": "2026-09-12T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-12T08:33:00+05:30",
+            "adjusted_exit_time": "2026-09-12T09:25:00+05:30",
+            "delay_added_min": 27
+          }
+        ],
+        "total_train_delay_min": 81,
+        "priority_weighted_train_delay_min": 243,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 34.3,
+        "risk_delay_penalty": 3.5,
+        "crew_cost": 20.75,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2454.25,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 81,
+          "max_single_train_delay_min": 54,
+          "average_delay_min": 5.06,
+          "affected_trains_count": 2,
+          "affected_train_ids": [
+            "TRN-12008",
+            "TRN-12009"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T08:35:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T07:10:00+05:30",
+          "maintenance_end_time": "2026-09-12T08:35:00+05:30",
+          "predicted_maintenance_duration_min": 83,
+          "simulated_maintenance_duration_min": 85
+        },
+        "maintenance": {
+          "maintenance_id": "M027",
+          "plan_id": "P116",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T07:10:00+05:30",
+          "planned_end": "2026-09-12T08:33:00+05:30",
+          "simulated_start": "2026-09-12T07:10:00+05:30",
+          "simulated_end": "2026-09-12T08:35:00+05:30",
+          "predicted_duration_min": 83,
+          "simulated_duration_min": 85,
+          "duration_variation_min": 2,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P121",
+    "maintenance_id": "M029",
+    "decision": "APPROVED",
+    "decision_id": "D0028",
+    "recorded_at": "2026-09-11T14:39:19.523704+05:30",
+    "evidence_hash": "5b9c1a02901b1bb1fbe33d0b6caf1637ee76fd5681baee5cba7cdee49110d273",
+    "evidence": {
+      "plan": {
+        "plan_id": "P121",
+        "maintenance_id": "M029",
+        "maintenance_window": {
+          "start": "2026-09-12T06:18:00+05:30",
+          "end": "2026-09-12T07:39:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12004",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T06:49:00+05:30",
+            "original_exit_time": "2026-09-12T07:39:00+05:30",
+            "adjusted_entry_time": "2026-09-12T07:39:00+05:30",
+            "adjusted_exit_time": "2026-09-12T08:29:00+05:30",
+            "delay_added_min": 50
+          },
+          {
+            "train_id": "TRN-12005",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T07:16:00+05:30",
+            "original_exit_time": "2026-09-12T08:06:00+05:30",
+            "adjusted_entry_time": "2026-09-12T07:39:00+05:30",
+            "adjusted_exit_time": "2026-09-12T08:29:00+05:30",
+            "delay_added_min": 23
+          }
+        ],
+        "total_train_delay_min": 73,
+        "priority_weighted_train_delay_min": 219,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 39.84,
+        "risk_delay_penalty": 0.9,
+        "crew_cost": 20.25,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2211.15,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 73,
+          "max_single_train_delay_min": 50,
+          "average_delay_min": 4.56,
+          "affected_trains_count": 2,
+          "affected_train_ids": [
+            "TRN-12004",
+            "TRN-12005"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T07:44:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T06:18:00+05:30",
+          "maintenance_end_time": "2026-09-12T07:44:00+05:30",
+          "predicted_maintenance_duration_min": 81,
+          "simulated_maintenance_duration_min": 86
+        },
+        "maintenance": {
+          "maintenance_id": "M029",
+          "plan_id": "P121",
+          "section_id": "SEC-RE-AWR",
+          "planned_start": "2026-09-12T06:18:00+05:30",
+          "planned_end": "2026-09-12T07:39:00+05:30",
+          "simulated_start": "2026-09-12T06:18:00+05:30",
+          "simulated_end": "2026-09-12T07:44:00+05:30",
+          "predicted_duration_min": 81,
+          "simulated_duration_min": 86,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P126",
+    "maintenance_id": "M030",
+    "decision": "APPROVED",
+    "decision_id": "D0029",
+    "recorded_at": "2026-09-11T14:47:35.701586+05:30",
+    "evidence_hash": "d49198984ea00ad06d18e58fb246f4349ad694fd19ff0954def90711ef1c16db",
+    "evidence": {
+      "plan": {
+        "plan_id": "P126",
+        "maintenance_id": "M030",
+        "maintenance_window": {
+          "start": "2026-09-12T08:58:00+05:30",
+          "end": "2026-09-12T10:26:00+05:30"
+        },
+        "assigned_crew_id": "CRW-02",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12011",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:00:00+05:30",
+            "original_exit_time": "2026-09-12T10:02:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 86
+          },
+          {
+            "train_id": "TRN-12012",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:27:00+05:30",
+            "original_exit_time": "2026-09-12T10:29:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 59
+          },
+          {
+            "train_id": "TRN-12013",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T09:54:00+05:30",
+            "original_exit_time": "2026-09-12T10:56:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 32
+          },
+          {
+            "train_id": "TRN-12014",
+            "priority": "MEDIUM",
+            "original_entry_time": "2026-09-12T10:21:00+05:30",
+            "original_exit_time": "2026-09-12T11:23:00+05:30",
+            "adjusted_entry_time": "2026-09-12T10:26:00+05:30",
+            "adjusted_exit_time": "2026-09-12T11:28:00+05:30",
+            "delay_added_min": 5
+          }
+        ],
+        "total_train_delay_min": 182,
+        "priority_weighted_train_delay_min": 364,
+        "maintenance_delay_min": 58,
+        "risk_reduction_estimate": 90.14,
+        "risk_delay_penalty": 47.47,
+        "crew_cost": 14.67,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 3992.14,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 562,
+          "max_single_train_delay_min": 86,
+          "average_delay_min": 35.12,
+          "affected_trains_count": 8,
+          "affected_train_ids": [
+            "TRN-12011",
+            "TRN-12012",
+            "TRN-12013",
+            "TRN-12014",
+            "TRN-12015",
+            "TRN-12016",
+            "TRN-12017",
+            "TRN-12018"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T10:23:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T08:58:00+05:30",
+          "maintenance_end_time": "2026-09-12T10:23:00+05:30",
+          "predicted_maintenance_duration_min": 88,
+          "simulated_maintenance_duration_min": 85
+        },
+        "maintenance": {
+          "maintenance_id": "M030",
+          "plan_id": "P126",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T08:58:00+05:30",
+          "planned_end": "2026-09-12T10:26:00+05:30",
+          "simulated_start": "2026-09-12T08:58:00+05:30",
+          "simulated_end": "2026-09-12T10:23:00+05:30",
+          "predicted_duration_min": 88,
+          "simulated_duration_min": 85,
+          "duration_variation_min": -3,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P131",
+    "maintenance_id": "M031",
+    "decision": "APPROVED",
+    "decision_id": "D0030",
+    "recorded_at": "2026-09-11T16:54:07.965981+05:30",
+    "evidence_hash": "78196b00f89925a91b7af5edf7651c3003cfb71035157a0dcb6f5eb840ed7a24",
+    "evidence": {
+      "plan": {
+        "plan_id": "P131",
+        "maintenance_id": "M031",
+        "maintenance_window": {
+          "start": "2026-09-12T16:13:00+05:30",
+          "end": "2026-09-12T17:37:00+05:30"
+        },
+        "assigned_crew_id": "CRW-03",
+        "affected_trains": [],
+        "total_train_delay_min": 0,
+        "priority_weighted_train_delay_min": 0,
+        "maintenance_delay_min": 493,
+        "risk_reduction_estimate": 41.89,
+        "risk_delay_penalty": 61.3,
+        "crew_cost": 17.5,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2543.8,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 0,
+          "max_single_train_delay_min": 0,
+          "average_delay_min": 0.0,
+          "affected_trains_count": 0,
+          "affected_train_ids": [],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T17:42:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T16:13:00+05:30",
+          "maintenance_end_time": "2026-09-12T17:42:00+05:30",
+          "predicted_maintenance_duration_min": 84,
+          "simulated_maintenance_duration_min": 89
+        },
+        "maintenance": {
+          "maintenance_id": "M031",
+          "plan_id": "P131",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T16:13:00+05:30",
+          "planned_end": "2026-09-12T17:37:00+05:30",
+          "simulated_start": "2026-09-12T16:13:00+05:30",
+          "simulated_end": "2026-09-12T17:42:00+05:30",
+          "predicted_duration_min": 84,
+          "simulated_duration_min": 89,
+          "duration_variation_min": 5,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  },
+  {
+    "plan_id": "P136",
+    "maintenance_id": "M032",
+    "decision": "APPROVED",
+    "decision_id": "D0031",
+    "recorded_at": "2026-09-11T18:21:50.808499+05:30",
+    "evidence_hash": "cffe684ed80d1897e415ae11950d32ab4d4e6b9510ff1b2f8d3a355bb22e61d4",
+    "evidence": {
+      "plan": {
+        "plan_id": "P136",
+        "maintenance_id": "M032",
+        "maintenance_window": {
+          "start": "2026-09-12T07:10:00+05:30",
+          "end": "2026-09-12T08:33:00+05:30"
+        },
+        "assigned_crew_id": "CRW-01",
+        "affected_trains": [
+          {
+            "train_id": "TRN-12008",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T07:39:00+05:30",
+            "original_exit_time": "2026-09-12T08:31:00+05:30",
+            "adjusted_entry_time": "2026-09-12T08:33:00+05:30",
+            "adjusted_exit_time": "2026-09-12T09:25:00+05:30",
+            "delay_added_min": 54
+          },
+          {
+            "train_id": "TRN-12009",
+            "priority": "HIGH",
+            "original_entry_time": "2026-09-12T08:06:00+05:30",
+            "original_exit_time": "2026-09-12T08:58:00+05:30",
+            "adjusted_entry_time": "2026-09-12T08:33:00+05:30",
+            "adjusted_exit_time": "2026-09-12T09:25:00+05:30",
+            "delay_added_min": 27
+          }
+        ],
+        "total_train_delay_min": 81,
+        "priority_weighted_train_delay_min": 243,
+        "maintenance_delay_min": 0,
+        "risk_reduction_estimate": 34.3,
+        "risk_delay_penalty": 3.5,
+        "crew_cost": 20.75,
+        "reroute_available": false,
+        "safety_conflicts": 0,
+        "overall_score": 2454.25,
+        "rank": 1
+      },
+      "simulation": {
+        "simulation_date": "2026-09-12",
+        "random_seed": 42,
+        "kpis": {
+          "total_delay_min": 81,
+          "max_single_train_delay_min": 54,
+          "average_delay_min": 5.06,
+          "affected_trains_count": 2,
+          "affected_train_ids": [
+            "TRN-12008",
+            "TRN-12009"
+          ],
+          "conflicts_detected": 0,
+          "maintenance_completed": true,
+          "maintenance_completion_time": "2026-09-12T08:37:00+05:30",
+          "trains_simulated": 16,
+          "maintenance_start_time": "2026-09-12T07:10:00+05:30",
+          "maintenance_end_time": "2026-09-12T08:37:00+05:30",
+          "predicted_maintenance_duration_min": 83,
+          "simulated_maintenance_duration_min": 87
+        },
+        "maintenance": {
+          "maintenance_id": "M032",
+          "plan_id": "P136",
+          "section_id": "SEC-NDLS-RE",
+          "planned_start": "2026-09-12T07:10:00+05:30",
+          "planned_end": "2026-09-12T08:33:00+05:30",
+          "simulated_start": "2026-09-12T07:10:00+05:30",
+          "simulated_end": "2026-09-12T08:37:00+05:30",
+          "predicted_duration_min": 83,
+          "simulated_duration_min": 87,
+          "duration_variation_min": 4,
+          "completion_status": "COMPLETED"
+        }
+      }
+    },
+    "execution_started": false
+  }
+]
