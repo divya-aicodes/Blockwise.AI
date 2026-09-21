@@ -51,7 +51,7 @@ export default function MaintenanceForm() {
         ...(duration ? { minimum_duration_min: Number(duration) } : {}),
       })
     )
-      navigate("/plan");
+      navigate(`/admin/planning/${useAppStore.getState().maintenance?.maintenance_id || "new"}`);
   }
   return (
     <Modal

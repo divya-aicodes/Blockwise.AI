@@ -17,7 +17,7 @@ export default function SimulationViewer({
           </span>
           <h2>Plan tested over one operating day</h2>
         </div>
-        <Link className="primary" to="/twin">
+        <Link className="primary" to={`/admin/digital-twin/${result.plan_id}`}>
           <Box size={16} />
           Open digital twin
         </Link>

@@ -120,6 +120,11 @@ def create_maintenance(
         earliest_start_time=payload.earliest_start_time,
         latest_end_time=payload.latest_end_time,
         created_at=datetime.now(LOCAL_TIMEZONE),
+        execution_mode=payload.execution_mode.value,
+        department_id=payload.department_id,
+        contract_id=payload.contract_id,
+        amc_id=payload.amc_id,
+        oem_service_id=payload.oem_service_id,
     )
 
 

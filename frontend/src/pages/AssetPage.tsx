@@ -61,7 +61,7 @@ export default function AssetPage() {
               : "Select an asset"}
         </h1>
         <p>Choose an asset from the corridor to inspect its condition.</p>
-        <Link className="primary" to="/map">
+        <Link className="primary" to="/admin/corridor">
           Open corridor <ArrowRight size={16} />
         </Link>
       </div>
@@ -69,7 +69,7 @@ export default function AssetPage() {
   const prediction = s.risks[asset.asset_id];
   return (
     <div className="page asset-page">
-      <Link className="back-link" to="/map">
+      <Link className="back-link" to="/admin/corridor">
         <ArrowLeft size={14} /> Back to corridor
       </Link>
       <div className="page-heading">

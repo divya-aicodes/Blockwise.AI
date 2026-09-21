@@ -33,6 +33,9 @@ class RegisterRequest(BaseModel):
     primary_skill: Literal["TRACK", "SIGNAL", "OHE", "POINT_MACHINE", "BRIDGE", "TELECOM"] = "TRACK"
     shift_start: str = Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d(:[0-5]\d)?$")
     shift_end: str = Field(pattern=r"^([01]\d|2[0-3]):[0-5]\d(:[0-5]\d)?$")
+    department_id: str | None = Field(default=None, max_length=64)
+    provider_type: Literal["WORKS_CONTRACT", "AMC_CAMC", "OEM_AUTHORIZED"] | None = None
+    provider_id: str | None = Field(default=None, max_length=64)
 
 
 class LoginRequest(BaseModel):
@@ -58,7 +61,11 @@ def _token_response(crew: Crew) -> dict:
 
 @router.post("/register", status_code=201)
 def register(payload: RegisterRequest, db: Session = Depends(get_db)) -> dict:
-    crew = Crew(employee_id=payload.employee_id, email=str(payload.email).lower(), password_hash=hash_password(payload.password), full_name=payload.full_name.strip(), role=payload.role, primary_skill=payload.primary_skill, shift_start=_parse_shift(payload.shift_start), shift_end=_parse_shift(payload.shift_end), is_active=False)
+    if payload.provider_type and not payload.provider_id:
+        raise HTTPException(status_code=422, detail="provider_id is required for provider-affiliated crew")
+    if payload.provider_id and not payload.provider_type:
+        raise HTTPException(status_code=422, detail="provider_type is required when provider_id is supplied")
+    crew = Crew(employee_id=payload.employee_id, email=str(payload.email).lower(), password_hash=hash_password(payload.password), full_name=payload.full_name.strip(), role=payload.role, primary_skill=payload.primary_skill, shift_start=_parse_shift(payload.shift_start), shift_end=_parse_shift(payload.shift_end), department_id=payload.department_id, provider_type=payload.provider_type, provider_id=payload.provider_id, is_active=False)
     db.add(crew)
     try:
         db.flush()
@@ -125,14 +132,14 @@ def approve(payload: ApprovalRequest, approver: Crew = Depends(require_roles("AD
 
 @router.get("/me")
 def me(crew: Crew = Depends(current_crew)) -> dict:
-    return {"employee_id": crew.employee_id, "full_name": crew.full_name, "role": crew.role, "primary_skill": crew.primary_skill, "availability": crew.availability, "is_active": crew.is_active}
+    return {"employee_id": crew.employee_id, "full_name": crew.full_name, "role": crew.role, "primary_skill": crew.primary_skill, "availability": crew.availability, "department_id": crew.department_id, "provider_type": crew.provider_type, "provider_id": crew.provider_id, "is_active": crew.is_active}
 
 
 @router.get("/pending")
 def pending(_: Crew = Depends(require_roles("ADMIN")), db: Session = Depends(get_db)) -> list[dict]:
-    return [{"employee_id": c.employee_id, "full_name": c.full_name, "email": c.email, "role": c.role, "primary_skill": c.primary_skill, "created_at": c.created_at.isoformat()} for c in db.scalars(select(Crew).where(Crew.is_active.is_(False), Crew.role != "ADMIN").order_by(Crew.created_at)).all()]
+    return [{"employee_id": c.employee_id, "full_name": c.full_name, "email": c.email, "role": c.role, "primary_skill": c.primary_skill, "department_id": c.department_id, "provider_type": c.provider_type, "provider_id": c.provider_id, "created_at": c.created_at.isoformat()} for c in db.scalars(select(Crew).where(Crew.is_active.is_(False), Crew.role != "ADMIN").order_by(Crew.created_at)).all()]
 
 
 @router.get("/active")
 def active(_: Crew = Depends(require_roles("ADMIN")), db: Session = Depends(get_db)) -> list[dict]:
-    return [{"employee_id": c.employee_id, "full_name": c.full_name, "role": c.role, "primary_skill": c.primary_skill, "secondary_skills": c.secondary_skills or [], "availability": c.availability} for c in db.scalars(select(Crew).where(Crew.is_active.is_(True), Crew.role != "ADMIN").order_by(Crew.full_name)).all()]
+    return [{"employee_id": c.employee_id, "full_name": c.full_name, "role": c.role, "primary_skill": c.primary_skill, "secondary_skills": c.secondary_skills or [], "availability": c.availability, "department_id": c.department_id, "provider_type": c.provider_type, "provider_id": c.provider_id} for c in db.scalars(select(Crew).where(Crew.is_active.is_(True), Crew.role != "ADMIN").order_by(Crew.full_name)).all()]

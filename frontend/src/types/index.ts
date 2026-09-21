@@ -175,7 +175,53 @@ export interface SimulationResult {
     event: string;
     time_min: number;
     section_id: SectionId;
+    maintenance_id?: string;
+    plan_id?: string;
+    execution_mode?: ExecutionMode;
+    assigned_crew_id?: string | null;
   }[];
+  execution_context?: SimulationExecutionContext;
+}
+
+export type ExecutionMode =
+  | "DEPARTMENTAL"
+  | "WORKS_CONTRACT"
+  | "AMC_CAMC"
+  | "OEM_AUTHORIZED"
+  | "EMERGENCY";
+
+export interface ResourceValidation {
+  manpower_available: boolean;
+  required_manpower: number | null;
+  assigned_manpower: number;
+  equipment_available: boolean;
+  required_equipment: string[];
+  materials_available: boolean;
+  required_materials: string[];
+  resource_conflict: boolean;
+  resource_conflicts: string[];
+  resource_reasons: string[];
+  validation_status: string;
+  executable: boolean;
+}
+
+export interface SimulationExecutionContext {
+  execution_mode: ExecutionMode;
+  assigned_crew_id: string | null;
+  supervisor_id: string | null;
+  department_id: string | null;
+  contract_id: string | null;
+  amc_id: string | null;
+  oem_service_id: string | null;
+  resource_validation: ResourceValidation;
+  safety_validation: {
+    valid: boolean;
+    planned_safety_conflicts: number;
+    simulated_safety_conflicts: number;
+  };
+  expected_train_delay_min: number;
+  simulated_train_delay_min: number;
+  executable: boolean;
 }
 export interface FeedbackStats {
   total_simulations: number;
@@ -195,10 +241,95 @@ export interface PlanDecision {
   recorded_at: string;
   evidence_hash: string;
   execution_started: boolean;
+  execution_mode?: ExecutionMode;
+  department_id?: string | null;
+  contract_id?: string | null;
+  amc_id?: string | null;
+  oem_service_id?: string | null;
+  work_order?: import("./api").WorkOrder;
 }
 export interface Traffic {
   section_id: SectionId;
   hour: number;
   weekday: number;
   expected_trains_per_hour: number;
+}
+
+export interface Station {
+  code: string;
+  name: string;
+  km?: number;
+  latitude?: number;
+  longitude?: number;
+}
+
+export interface CorridorSection {
+  section_id: SectionId;
+  from_station: string;
+  to_station: string;
+  distance_km: number;
+  max_speed_kmh: number;
+}
+
+export interface CorridorData {
+  sections: CorridorSection[];
+  stations: Station[];
+}
+
+export interface TrainRecord {
+  train_id: string;
+  train_name: string;
+  train_type: string;
+  section_id: SectionId;
+  date: string;
+  scheduled_entry_time: string;
+  scheduled_exit_time: string;
+  actual_entry_time: string;
+  actual_exit_time: string;
+  delay_min: number;
+  priority: string;
+}
+
+export interface CrewRecord {
+  crew_id: string;
+  crew_name: string;
+  primary_skill: string;
+  secondary_skills: string;
+  shift_start: string;
+  shift_end: string;
+  crew_size: number;
+  availability: string;
+}
+
+export interface TimetableRecord {
+  train_id: string;
+  train_name: string;
+  train_type: string;
+  section_id: SectionId;
+  scheduled_entry_time: string;
+  scheduled_exit_time: string;
+  priority: string;
+  running_days: string;
+}
+
+export interface WeatherRecord {
+  date: string;
+  temperature_c: number;
+  weather_condition: string;
+  rainfall_mm: number;
+  visibility_km: number;
+  wind_speed_kmh: number;
+}
+
+export interface MaintenanceHistoryRecord {
+  job_id: string;
+  asset_id: string;
+  section_id: SectionId;
+  job_type: string;
+  asset_condition: number;
+  crew_id: string;
+  crew_size: number;
+  weather_condition: string;
+  historical_duration: number;
+  duration_min: number;
 }

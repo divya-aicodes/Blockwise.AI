@@ -48,6 +48,14 @@ class Urgency(str, Enum):
     emergency = "EMERGENCY"
 
 
+class ExecutionMode(str, Enum):
+    departmental = "DEPARTMENTAL"
+    works_contract = "WORKS_CONTRACT"
+    amc_camc = "AMC_CAMC"
+    oem_authorized = "OEM_AUTHORIZED"
+    emergency = "EMERGENCY"
+
+
 def _aware(value: datetime, field_name: str) -> datetime:
     if value.tzinfo is None or value.utcoffset() is None:
         raise ValueError(f"{field_name} must include a UTC offset")
@@ -138,6 +146,11 @@ class CreateMaintenanceRequest(StrictModel):
     preferred_start_time: datetime
     earliest_start_time: datetime
     latest_end_time: datetime
+    execution_mode: ExecutionMode = ExecutionMode.departmental
+    department_id: str | None = Field(default=None, max_length=64)
+    contract_id: str | None = Field(default=None, max_length=64)
+    amc_id: str | None = Field(default=None, max_length=64)
+    oem_service_id: str | None = Field(default=None, max_length=64)
 
     @field_validator(
         "preferred_start_time", "earliest_start_time", "latest_end_time"
@@ -177,6 +190,11 @@ class MaintenanceRecord(StrictModel):
     latest_end_time: datetime
     status: str
     created_at: datetime
+    execution_mode: ExecutionMode = ExecutionMode.departmental
+    department_id: str | None = None
+    contract_id: str | None = None
+    amc_id: str | None = None
+    oem_service_id: str | None = None
 
 
 class DetectConflictsRequest(StrictModel):
@@ -359,6 +377,25 @@ class MaintenanceSimulationEvent(StrictModel):
     event: str
     time_min: float = Field(ge=0)
     section_id: SectionId
+    maintenance_id: str | None = None
+    plan_id: str | None = None
+    execution_mode: ExecutionMode | None = None
+    assigned_crew_id: str | None = None
+
+
+class SimulationExecutionContext(StrictModel):
+    execution_mode: ExecutionMode
+    assigned_crew_id: str | None = None
+    supervisor_id: str | None = None
+    department_id: str | None = None
+    contract_id: str | None = None
+    amc_id: str | None = None
+    oem_service_id: str | None = None
+    resource_validation: dict[str, object]
+    safety_validation: dict[str, object]
+    expected_train_delay_min: int = Field(ge=0)
+    simulated_train_delay_min: int = Field(ge=0)
+    executable: bool
 
 
 class SimulationResponse(StrictModel):
@@ -372,6 +409,7 @@ class SimulationResponse(StrictModel):
     train_results: list[SimulatedTrainResult]
     safety_events: list[SafetyEvent]
     maintenance_events: list[MaintenanceSimulationEvent]
+    execution_context: SimulationExecutionContext | None = None
 
 
 class FeedbackStatsResponse(StrictModel):

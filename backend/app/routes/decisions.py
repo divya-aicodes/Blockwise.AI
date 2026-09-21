@@ -12,18 +12,24 @@ from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import Field
+from sqlalchemy import select
 
-from backend.app.schemas import StrictModel
+from backend.app.schemas import ExecutionMode, StrictModel
 from backend.app.simulation.conflict_detector import LOCAL_TIMEZONE
 from backend.app.simulation.scenario_runner import run_scenario
 from backend.app.auth.service import admin_or_anonymous
-from backend.app.db.models import Crew
+from backend.app.db.models import Crew, WorkOrder
 
 
 class DecisionRequest(StrictModel):
     plan_id: str = Field(pattern=r"^P\d{3,}$")
     maintenance_id: str = Field(pattern=r"^M\d{3,}$")
     decision: Literal["APPROVED", "MODIFY", "REJECTED"]
+    execution_mode: ExecutionMode = ExecutionMode.departmental
+    department_id: str | None = Field(default=None, max_length=64)
+    contract_id: str | None = Field(default=None, max_length=64)
+    amc_id: str | None = Field(default=None, max_length=64)
+    oem_service_id: str | None = Field(default=None, max_length=64)
 
 
 class DecisionStore:
@@ -38,7 +44,14 @@ class DecisionStore:
             raise ValueError("Plan decisions must be a JSON list")
 
     def record(self, payload: DecisionRequest, plan: dict, simulation: dict | None) -> dict:
-        snapshot = {"plan": plan, "simulation": simulation}
+        execution = {
+            "execution_mode": payload.execution_mode.value,
+            "department_id": payload.department_id,
+            "contract_id": payload.contract_id,
+            "amc_id": payload.amc_id,
+            "oem_service_id": payload.oem_service_id,
+        }
+        snapshot = {"plan": plan, "simulation": simulation, "execution": execution}
         digest = hashlib.sha256(json.dumps(snapshot, sort_keys=True).encode()).hexdigest()
         with self.lock:
             for record in reversed(self.records):
@@ -47,7 +60,7 @@ class DecisionStore:
                         return record
                     break
             result = {
-                **payload.model_dump(), "decision_id": f"D{len(self.records) + 1:04d}",
+                **payload.model_dump(mode="json"), "decision_id": f"D{len(self.records) + 1:04d}",
                 "recorded_at": datetime.now(LOCAL_TIMEZONE).isoformat(),
                 "evidence_hash": digest, "evidence": snapshot,
                 "execution_started": False,
@@ -99,6 +112,42 @@ def plan_decision(
             raise HTTPException(409, "Approval requires completed maintenance and zero simulated safety conflicts")
         simulation = {"simulation_date": result["simulation_date"], "random_seed": 42,
                       "kpis": result["kpis"], "maintenance": result["maintenance"]}
+    if payload.decision == "APPROVED" and actor is not None:
+        from backend.app.db.base import SessionLocal
+
+        db = SessionLocal()
+        try:
+            existing = db.scalar(
+                select(WorkOrder).where(WorkOrder.plan_id == payload.plan_id)
+            )
+            if existing and existing.execution_mode != payload.execution_mode.value:
+                raise HTTPException(
+                    409, "Execution mode cannot be changed after work-order creation"
+                )
+            expected_reference = {
+                "DEPARTMENTAL": payload.department_id,
+                "WORKS_CONTRACT": payload.contract_id,
+                "AMC_CAMC": payload.amc_id,
+                "OEM_AUTHORIZED": payload.oem_service_id,
+                "EMERGENCY": None,
+            }[payload.execution_mode.value]
+            stored_reference = (
+                existing.department_id
+                if existing and existing.execution_mode == "DEPARTMENTAL"
+                else existing.contract_id
+                if existing and existing.execution_mode == "WORKS_CONTRACT"
+                else existing.amc_id
+                if existing and existing.execution_mode == "AMC_CAMC"
+                else existing.oem_service_id
+                if existing and existing.execution_mode == "OEM_AUTHORIZED"
+                else None
+            )
+            if existing and expected_reference != stored_reference:
+                raise HTTPException(
+                    409, "Execution provider cannot be changed after work-order creation"
+                )
+        finally:
+            db.close()
     try:
         decision = request.app.state.decision_store.record(payload, plan, simulation)
         if payload.decision == "APPROVED" and actor is not None:
@@ -106,8 +155,19 @@ def plan_decision(
             from backend.app.work_orders.service import create_from_plan, serialize
             db = SessionLocal()
             try:
-                work_order = create_from_plan(db, plan=plan, requirement=requirement, actor=actor)
+                work_order = create_from_plan(
+                    db, plan=plan, requirement=requirement, actor=actor,
+                    execution={
+                        "execution_mode": payload.execution_mode.value,
+                        "department_id": payload.department_id,
+                        "contract_id": payload.contract_id,
+                        "amc_id": payload.amc_id,
+                        "oem_service_id": payload.oem_service_id,
+                    },
+                )
                 decision = {**decision, "work_order": serialize(work_order)}
+            except ValueError as exc:
+                raise HTTPException(409, str(exc)) from exc
             finally:
                 db.close()
         return decision

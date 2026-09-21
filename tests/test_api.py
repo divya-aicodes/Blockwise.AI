@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import csv
 from pathlib import Path
+import shutil
 
 import pytest
 from fastapi.testclient import TestClient
@@ -37,6 +39,53 @@ def _maintenance_payload(**overrides: object) -> dict[str, object]:
     return payload
 
 
+def test_refresh_reloads_all_file_backed_operational_data(
+    artifact_bundle: dict[str, object], tmp_path: Path
+) -> None:
+    data_dir = tmp_path / "data"
+    shutil.copytree(artifact_bundle["data_dir"], data_dir)
+    application = create_application(
+        data_dir=data_dir,
+        graph_path=artifact_bundle["graph_path"],
+        risk_model_path=artifact_bundle["risk_model_path"],
+        duration_model_path=artifact_bundle["duration_model_path"],
+        traffic_profile_path=data_dir / "traffic_profile.csv",
+    )
+    with TestClient(application) as refresh_client:
+        original = next(
+            asset for asset in refresh_client.get("/assets").json()
+            if asset["asset_id"] == "AST-02-01"
+        )
+        assets_path = data_dir / "assets.csv"
+        with assets_path.open(newline="", encoding="utf-8") as source:
+            rows = list(csv.DictReader(source))
+            fieldnames = list(rows[0])
+        updated_score = min(100, int(original["condition_score"]) + 1)
+        for row in rows:
+            if row["asset_id"] == "AST-02-01":
+                row["condition_score"] = str(updated_score)
+        with assets_path.open("w", newline="", encoding="utf-8") as destination:
+            writer = csv.DictWriter(destination, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+
+        cached = next(
+            asset for asset in refresh_client.get("/assets").json()
+            if asset["asset_id"] == "AST-02-01"
+        )
+        assert cached["condition_score"] == original["condition_score"]
+
+        refreshed = refresh_client.post("/data/refresh")
+        assert refreshed.status_code == 200, refreshed.text
+        assert refreshed.json()["status"] == "refreshed"
+        assert len(refreshed.json()["datasets"]) == 12
+        current = next(
+            asset for asset in refresh_client.get("/assets").json()
+            if asset["asset_id"] == "AST-02-01"
+        )
+        assert current["condition_score"] == updated_score
+
+
 def test_stage_one_endpoints_remain_compatible(client: TestClient) -> None:
     health = client.get("/health")
     assert health.status_code == 200
@@ -46,6 +95,14 @@ def test_stage_one_endpoints_remain_compatible(client: TestClient) -> None:
     assets = client.get("/assets")
     assert assets.status_code == 200
     assert len(assets.json()) == 24
+    weather = client.get("/weather")
+    assert weather.status_code == 200
+    assert weather.json()
+    assert {"date", "weather_condition", "temperature_c"}.issubset(weather.json()[0])
+    history = client.get("/maintenance-history")
+    assert history.status_code == 200
+    assert history.json()
+    assert {"job_id", "asset_id", "duration_min"}.issubset(history.json()[0])
     trains = client.get(
         "/trains", params={"section": "SEC-RE-AWR", "date": "2025-01-01"}
     )

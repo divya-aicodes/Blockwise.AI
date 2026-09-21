@@ -57,8 +57,23 @@ def init_db() -> None:
 def _additive_schema_upgrade() -> None:
     """Add newly introduced nullable columns for an existing local SQLite DB."""
     additions = {
-        "crews": {"parent_crew_id": "VARCHAR(36)", "certifications": "JSON", "phone": "VARCHAR(20)", "emergency_contact": "JSON"},
-        "work_orders": {"asset_type": "VARCHAR(50)", "variance_minutes": "INTEGER", "gps_start": "JSON", "gps_end": "JSON", "overtime_minutes": "INTEGER DEFAULT 0", "material_cost": "NUMERIC(10, 2) DEFAULT 0", "equipment_cost": "NUMERIC(10, 2) DEFAULT 0", "rejection_reason": "TEXT"},
+        "crews": {
+            "parent_crew_id": "VARCHAR(36)", "certifications": "JSON",
+            "phone": "VARCHAR(20)", "emergency_contact": "JSON",
+            "department_id": "VARCHAR(64)", "provider_type": "VARCHAR(24)",
+            "provider_id": "VARCHAR(64)",
+        },
+        "work_orders": {
+            "asset_type": "VARCHAR(50)", "variance_minutes": "INTEGER",
+            "gps_start": "JSON", "gps_end": "JSON",
+            "overtime_minutes": "INTEGER DEFAULT 0",
+            "material_cost": "NUMERIC(10, 2) DEFAULT 0",
+            "equipment_cost": "NUMERIC(10, 2) DEFAULT 0",
+            "rejection_reason": "TEXT",
+            "execution_mode": "VARCHAR(24) NOT NULL DEFAULT 'DEPARTMENTAL'",
+            "department_id": "VARCHAR(64)", "contract_id": "VARCHAR(64)",
+            "amc_id": "VARCHAR(64)", "oem_service_id": "VARCHAR(64)",
+        },
         "checklists": {"created_at": "DATETIME"},
     }
     inspector = inspect(engine)

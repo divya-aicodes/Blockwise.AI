@@ -1,5 +1,6 @@
 import { Component, lazy, Suspense, type ReactNode } from "react";
-import { sections } from "../lib";
+import { useAppStore } from "../store/useAppStore";
+import { getCorridorSections } from "../lib";
 import type { CorridorProps } from "./ThreeRailwayCorridor";
 const ThreeRailwayCorridor = lazy(() => import("./ThreeRailwayCorridor"));
 class SceneBoundary extends Component<
@@ -26,6 +27,8 @@ class SceneBoundary extends Component<
   }
 }
 export default function RailwayCorridor(props: CorridorProps) {
+  const corridorData = useAppStore((state) => state.corridorData);
+  const corridorSections = getCorridorSections(corridorData);
   return (
     <div className="corridor-canvas">
       <div className="canvas-caption">
@@ -46,18 +49,24 @@ export default function RailwayCorridor(props: CorridorProps) {
       </SceneBoundary>
       <div className="canvas-legend">
         <span>
-          <i style={{ background: "#9ab0bc" }} /> Railway
+          <i style={{ background: "#687f83" }} /> Railway (Multi-track)
         </span>
         <span>
-          <i style={{ background: "#db6b71" }} /> Critical asset
+          <i style={{ background: "#e95363" }} /> Critical Asset (High Risk)
         </span>
         <span>
-          <i style={{ background: "#d6b16b" }} /> Maintenance
+          <i style={{ background: "#e3a54f" }} /> Maintenance
         </span>
+        <span className="legend-detail">▮ Signaling Mast</span>
+        <span className="legend-detail">⌁ OHE Gantry</span>
+        <span className="legend-detail">◇ High Risk Zone</span>
+        <span className="legend-detail">▰ Trains</span>
+        <span className="legend-detail">⌁ Bridge</span>
+        <span className="legend-detail">◉ Tunnel</span>
         <span className="canvas-help">Drag to orbit · Scroll to zoom</span>
       </div>
       <div className="route-ruler" aria-label="Section distances">
-        {sections.map((s) => (
+        {corridorSections.map((s) => (
           <span key={s.id} style={{ flex: s.distance }}>
             {s.from}—{s.to}
             <small>{s.distance} km</small>

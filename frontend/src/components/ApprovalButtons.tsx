@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { Check, CheckCircle2, Pencil, X, ShieldCheck } from "lucide-react";
 import { useAppStore } from "../store/useAppStore";
 import { clock, dateLabel } from "../lib";
@@ -6,18 +7,27 @@ import Modal from "./Modal";
 export default function ApprovalButtons() {
   const s = useAppStore(),
     [confirm, setConfirm] = useState(false);
+  const navigate = useNavigate();
+  const [executionMode, setExecutionMode] = useState("DEPARTMENTAL");
+  const [reference, setReference] = useState("");
   const close = useCallback(() => setConfirm(false), []);
   const plan = s.plans.find((p) => p.plan_id === s.selectedPlanId);
   if (!plan) return null;
   const result = s.simulations[plan.plan_id],
     decision = s.decisions[plan.plan_id];
-  const eligible =
-    result &&
-    result.kpis.maintenance_completed &&
-    result.kpis.conflicts_detected === 0 &&
-    plan.safety_conflicts === 0;
+  // The API remains authoritative for approval eligibility and revalidates
+  // safety. The UI only requires simulation evidence before opening review.
+  const canReview = Boolean(result);
   async function approve() {
-    if (await s.decide("APPROVED")) setConfirm(false);
+    const referenceField = { DEPARTMENTAL: "department_id", WORKS_CONTRACT: "contract_id", AMC_CAMC: "amc_id", OEM_AUTHORIZED: "oem_service_id" }[executionMode];
+    const approved = await s.decide("APPROVED", {
+      execution_mode: executionMode,
+      ...(referenceField ? { [referenceField]: reference.trim() || null } : {}),
+    });
+    if (approved) {
+      setConfirm(false);
+      if (approved.work_order?.id) navigate(`/admin/work-orders/${approved.work_order.id}`);
+    }
   }
   return (
     <section className="approval-panel">
@@ -57,16 +67,15 @@ export default function ApprovalButtons() {
           </p>
         </>
       )}
-      {!eligible && !decision && (
+      {!canReview && !decision && (
         <p className="notice">
-          Simulate this plan with completed maintenance and zero unresolved
-          conflicts to enable approval.
+          Simulate this plan before opening the human approval review.
         </p>
       )}
       <div className="approval-actions">
         <button
           className="approve"
-          disabled={!eligible || !!s.busy || decision?.decision === "APPROVED"}
+          disabled={!canReview || !!s.busy || decision?.decision === "APPROVED"}
           onClick={() => setConfirm(true)}
         >
           <Check size={15} />
@@ -157,6 +166,21 @@ export default function ApprovalButtons() {
               The backend rechecks the stored plan and retains the decision
               evidence. This is a local demo planning approval.
             </p>
+            <div className="execution-choice">
+              <label>Execution mode
+                <select value={executionMode} onChange={(event) => { setExecutionMode(event.target.value); setReference(""); }}>
+                  <option value="DEPARTMENTAL">Departmental team</option>
+                  <option value="AMC_CAMC">AMC / CAMC provider</option>
+                  <option value="WORKS_CONTRACT">Works contract</option>
+                  <option value="OEM_AUTHORIZED">OEM-authorized service</option>
+                  <option value="EMERGENCY">Emergency response</option>
+                </select>
+              </label>
+              {executionMode !== "EMERGENCY" && <label>{executionMode === "DEPARTMENTAL" ? "Department ID" : "Provider / contract reference"}
+                <input value={reference} onChange={(event) => setReference(event.target.value)} placeholder={executionMode === "DEPARTMENTAL" ? "e.g. ENG-NDLS" : "Approved reference ID"} required />
+              </label>}
+              <small>After approval this choice is immutable. Assignment will only show affiliated, skill-matched crew.</small>
+            </div>
             {s.error && (
               <div className="error" role="alert">
                 {s.error}
@@ -164,7 +188,7 @@ export default function ApprovalButtons() {
             )}
             <button
               className="approve full"
-              disabled={!!s.busy}
+              disabled={!!s.busy || (executionMode !== "EMERGENCY" && !reference.trim())}
               onClick={() => void approve()}
             >
               {s.busy || "Approve plan"}

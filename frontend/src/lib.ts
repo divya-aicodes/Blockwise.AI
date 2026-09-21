@@ -1,4 +1,4 @@
-import type { Section, SimulationResult, Train } from "./types";
+import type { Section, SectionId, SimulationResult, Train } from "./types";
 export const sections: Section[] = [
   {
     id: "SEC-NDLS-RE",
@@ -46,6 +46,25 @@ export const riskColors = {
   HIGH: "#d68c5e",
   CRITICAL: "#db6b71",
 };
+
+export function getCorridorSections(data?: { sections?: { section_id: SectionId; from_station: string; to_station: string; distance_km: number }[] } | null): Section[] {
+  if (!data?.sections?.length) return sections;
+  let cum = 0;
+  return data.sections.map((s) => {
+    const start = cum;
+    const end = start + (s.distance_km || 0);
+    cum = end;
+    return {
+      id: s.section_id,
+      from: s.from_station,
+      to: s.to_station,
+      distance: s.distance_km,
+      start,
+      end,
+    };
+  });
+}
+
 export const titleCase = (s: string) =>
   s
     .toLowerCase()

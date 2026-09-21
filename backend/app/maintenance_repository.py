@@ -26,6 +26,11 @@ MAINTENANCE_COLUMNS = [
     "preferred_start_time",
     "earliest_start_time",
     "latest_end_time",
+    "execution_mode",
+    "department_id",
+    "contract_id",
+    "amc_id",
+    "oem_service_id",
     "status",
     "created_at",
 ]
@@ -49,9 +54,17 @@ class MaintenanceRepository:
                 return
             with self.path.open("r", encoding="utf-8", newline="") as source:
                 reader = csv.DictReader(source)
-                if reader.fieldnames != MAINTENANCE_COLUMNS:
+                legacy_columns = [column for column in MAINTENANCE_COLUMNS if column not in {
+                    "execution_mode", "department_id", "contract_id", "amc_id", "oem_service_id"
+                }]
+                if reader.fieldnames not in (MAINTENANCE_COLUMNS, legacy_columns):
                     raise ValueError("maintenance_requests.csv schema is invalid")
                 for row in reader:
+                    row.setdefault("execution_mode", "DEPARTMENTAL")
+                    row.setdefault("department_id", "")
+                    row.setdefault("contract_id", "")
+                    row.setdefault("amc_id", "")
+                    row.setdefault("oem_service_id", "")
                     maintenance_id = str(row["maintenance_id"])
                     if maintenance_id in self._records:
                         raise ValueError(
@@ -109,6 +122,11 @@ class MaintenanceRepository:
         earliest_start_time: datetime,
         latest_end_time: datetime,
         created_at: datetime,
+        execution_mode: str = "DEPARTMENTAL",
+        department_id: str | None = None,
+        contract_id: str | None = None,
+        amc_id: str | None = None,
+        oem_service_id: str | None = None,
     ) -> dict[str, Any]:
         if created_at.tzinfo is None or created_at.utcoffset() is None:
             raise ValueError("created_at must include a UTC offset")
@@ -143,6 +161,11 @@ class MaintenanceRepository:
                 "preferred_start_time": preferred_start_time.isoformat(),
                 "earliest_start_time": earliest_start_time.isoformat(),
                 "latest_end_time": latest_end_time.isoformat(),
+                "execution_mode": execution_mode,
+                "department_id": department_id or "",
+                "contract_id": contract_id or "",
+                "amc_id": amc_id or "",
+                "oem_service_id": oem_service_id or "",
                 "status": "REQUIREMENT_CREATED",
                 "created_at": created_at.isoformat(),
             }

@@ -9,25 +9,29 @@ export default function WorkflowProgress() {
     !!s.conflicts,
     s.plans.length > 0,
     !!(s.selectedPlanId && s.simulations[s.selectedPlanId]),
+    !!(s.selectedPlanId && s.decisions[s.selectedPlanId]?.execution_mode),
     !!(s.selectedPlanId && s.decisions[s.selectedPlanId]),
+    !!(s.selectedPlanId && s.decisions[s.selectedPlanId]?.work_order?.assigned_crew_id),
   ];
   return (
     <div className="workflow" aria-label="Planning workflow">
       {[
         "Asset",
         "Risk",
-        "Maintenance",
+        "Requirement",
         "Conflicts",
         "Alternatives",
         "Simulation",
-        "Decision",
+        "Execution mode",
+        "Approval",
+        "Assignment",
       ].map((label, i) => (
         <div key={label} className={done[i] ? "complete" : ""}>
           <span className="step-number">
             {done[i] ? <Check size={11} /> : i + 1}
           </span>
           <span>{label}</span>
-          {i < 6 && <ChevronRight className="step-chevron" size={12} />}
+          {i < 8 && <ChevronRight className="step-chevron" size={12} />}
         </div>
       ))}
     </div>

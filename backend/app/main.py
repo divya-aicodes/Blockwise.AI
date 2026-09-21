@@ -34,6 +34,7 @@ from backend.app.repository import CsvRepository
 from backend.app.routes.optimize import router as optimize_router
 from backend.app.routes.simulation import router as simulation_router
 from backend.app.routes.decisions import DecisionStore, router as decisions_router
+from backend.app.routes.planning import router as planning_router
 from backend.app.auth.routes import router as auth_router
 from backend.app.work_orders.routes import router as work_orders_router
 from backend.app.checklists.routes import router as checklists_router
@@ -124,6 +125,64 @@ def create_application(
     ) -> list[dict[str, object]]:
         repository: CsvRepository = request.app.state.repository
         return repository.list_assets()
+
+    @application.post("/data/refresh", tags=["data"])
+    def refresh_operational_datasets(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> dict[str, object]:
+        """Atomically reload every file-backed source used by the application.
+
+        Database-backed identity, work-order, checklist and notification data is
+        already queried live and therefore does not require a reload.
+        """
+        resolved_maintenance_path = (
+            Path(maintenance_requests_path)
+            if maintenance_requests_path is not None
+            else Path(data_dir) / MAINTENANCE_REQUESTS_PATH.name
+        )
+        storage_directory = resolved_maintenance_path.parent
+        resolved_plan_path = (
+            Path(plan_store_path)
+            if plan_store_path is not None
+            else storage_directory / PLAN_STORE_PATH.name
+        )
+        resolved_feedback_path = (
+            Path(feedback_path)
+            if feedback_path is not None
+            else storage_directory / FEEDBACK_PATH.name
+        )
+        refreshed_repository = CsvRepository.from_data_dir(data_dir)
+        refreshed_graph = RailwayGraph.load_graph(graph_path)
+        refreshed_traffic = load_traffic_profile(traffic_profile_path)
+        refreshed_maintenance = MaintenanceRepository(resolved_maintenance_path)
+        refreshed_plans = PlanRepository(resolved_plan_path)
+        refreshed_feedback = FeedbackStore(resolved_feedback_path)
+        refreshed_decisions = DecisionStore(storage_directory / "plan_decisions.json")
+        request.app.state.repository = refreshed_repository
+        request.app.state.graph = refreshed_graph
+        request.app.state.traffic_profile = refreshed_traffic
+        request.app.state.maintenance_repository = refreshed_maintenance
+        request.app.state.plan_repository = refreshed_plans
+        request.app.state.feedback_store = refreshed_feedback
+        request.app.state.decision_store = refreshed_decisions
+        return {
+            "status": "refreshed",
+            "datasets": {
+                "assets": len(refreshed_repository.assets),
+                "train_movements": len(refreshed_repository.trains),
+                "crew_roster": len(refreshed_repository.crews),
+                "maintenance_history": len(refreshed_repository.maintenance_jobs),
+                "weather_observations": len(refreshed_repository.weather),
+                "timetable_services": len(refreshed_repository.timetable),
+                "corridor_graph": len(refreshed_graph.get_all_sections()),
+                "traffic_profile": "loaded",
+                "maintenance_requirements": len(refreshed_maintenance),
+                "optimization_plans": len(refreshed_plans),
+                "simulation_feedback": len(refreshed_feedback),
+                "plan_decisions": len(refreshed_decisions.records),
+            },
+        }
 
     @application.get("/health", response_model=HealthResponse, tags=["system"])
     def health(request: Request) -> HealthResponse:
@@ -217,9 +276,56 @@ def create_application(
             expected_trains_per_hour=expected,
         )
 
+    @application.get("/corridor", tags=["data"])
+    def corridor_data(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> dict[str, object]:
+        graph: RailwayGraph = request.app.state.graph
+        return {
+            "sections": graph.get_all_sections(),
+            "stations": [
+                {"code": code, **dict(attrs)}
+                for code, attrs in graph.graph.nodes(data=True)
+            ],
+        }
+
+    @application.get("/crews", tags=["data"])
+    def list_crews(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> list[dict[str, object]]:
+        repository: CsvRepository = request.app.state.repository
+        return repository.list_crews()
+
+    @application.get("/timetable", tags=["data"])
+    def list_timetable(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> list[dict[str, object]]:
+        repository: CsvRepository = request.app.state.repository
+        return [dict(row) for row in repository.timetable]
+
+    @application.get("/weather", tags=["data"])
+    def list_weather(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> list[dict[str, object]]:
+        repository: CsvRepository = request.app.state.repository
+        return [dict(row) for row in repository.weather]
+
+    @application.get("/maintenance-history", tags=["data"])
+    def list_maintenance_history(
+        request: Request,
+        _: object = Depends(admin_or_anonymous),
+    ) -> list[dict[str, object]]:
+        repository: CsvRepository = request.app.state.repository
+        return [dict(row) for row in repository.maintenance_jobs]
+
     application.include_router(optimize_router)
     application.include_router(simulation_router)
     application.include_router(decisions_router)
+    application.include_router(planning_router)
     application.include_router(auth_router)
     application.include_router(work_orders_router)
     application.include_router(checklists_router)

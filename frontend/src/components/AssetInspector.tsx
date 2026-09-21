@@ -41,7 +41,7 @@ export default function AssetInspector({ asset }: { asset: Asset }) {
       </dl>
       <button
         className="primary full"
-        onClick={() => navigate("/asset/" + asset.asset_id)}
+        onClick={() => navigate("/admin/assets/" + asset.asset_id)}
       >
         Inspect asset <ArrowUpRight size={16} />
       </button>

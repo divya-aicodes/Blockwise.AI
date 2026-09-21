@@ -22,7 +22,7 @@ export default function PlanPage() {
           Select an asset and create a requirement to open the planning
           workspace.
         </p>
-        <Link className="primary" to="/map">
+        <Link className="primary" to="/admin/corridor">
           Select an asset <ArrowRight size={16} />
         </Link>
       </div>
