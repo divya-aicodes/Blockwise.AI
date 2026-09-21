@@ -15,6 +15,7 @@ frontend/tsconfig.tsbuildinfo
 .kilo/
 tmp/
 *.joblib
+!backend/app/ml/artifacts/*.joblib
 *.db
 .env
 .env.*
