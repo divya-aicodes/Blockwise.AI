@@ -7,7 +7,7 @@ Stage 1: CSV data + NetworkX graph + RandomForest models + traffic profile
     -> Stage 2: occupancy conflicts + OR-Tools CP-SAT alternatives
     -> Stage 3: SimPy 24-hour simulation + simulated feedback
     -> Stage 4: React/Three.js + crew management (auth, work orders, checklists)
-    -> Stage 5: cross-stage validation, hardening and end-to-end tests
+    -> Stage 5: cross-stage validation, hardening and end-to-end tests.
 ```
 
 Runtime contract:
