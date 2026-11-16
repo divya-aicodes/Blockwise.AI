@@ -281,3 +281,6 @@ npm.cmd exec --yes playwright test
 The suite covers Stage 1 compatibility; all four valid sections; actual-history versus future-timetable selection; conflict boundaries; Stage 2 planning constraints and endpoints; corridor ordering; sequential train movement; exclusive maintenance occupancy; planned and additional delay; unaffected sparse traffic; deterministic duration variation; KPI aggregation; all four simulation targets; persisted feedback and MAE math; and both Stage 3 endpoints.
 
 The models and risk comparison metrics are prototype aids trained on synthetic data. They are not evidence of operational accuracy or authorization to execute railway work. Playwright exercises the complete browser workflow against the local backend, including responsive layouts, simulation playback, backend-offline recovery, and all three decision actions.
+
+QR code Scan and Maintain the Indian Railway
+<img width="1600" height="1600" alt="Blockwise Ai" src="https://github.com/user-attachments/assets/c9ac13f2-08b9-4dbd-a6e9-a704e1044aec" />
